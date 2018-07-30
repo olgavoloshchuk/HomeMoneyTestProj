@@ -22,7 +22,7 @@ Test Steps:
 
 Expected result for steps 2-4:
 - Page https://homemoney.ua/app/ is opened
-- E-mail "olga.voloshchuk@gmail.com" is seen in the upper line
+- Bookmark "Control Panel" is opened
 - Reference "Sign out" is seen in the upper line
 
 5. In the upper line press reference "Sign out"

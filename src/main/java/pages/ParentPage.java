@@ -27,4 +27,17 @@ public class ParentPage {
             Assert.fail("Cannot work with Url");
         }
     }
+
+    public void openPage (String expectedUrl) {
+        try {
+            webDriver.get(baseUrl+expectedUrl);
+            checkCurrentUrl();
+            logger.info("Page " + baseUrl+ expectedUrl+" was opened");
+        } catch (Exception e) {
+            logger.error("Cannot open page "+ baseUrl+expectedUrl);
+            Assert.fail("Cannot open page "+ baseUrl+expectedUrl);
+
+        }
+
+    }
 }
