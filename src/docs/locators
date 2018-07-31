@@ -1,0 +1,23 @@
+#login form
+Login.login = xpath(".//input[@id='ctl00_Main_login']")
+Login.password = xpath(".//input[@id='ctl00_Main_password']")
+Login.SubmitButton = xpath(".//input[@id='ctl00_Main_LoginButton']")
+Login.CheckPass = xpath(".//*[@id='ctl00_Main_error']")
+
+#Main Form
+Main.SignOut = xpath(".//a[@id='ctl00_ctl00_Top_LV2_LoginStatus2']")
+Main.ControlPanel.AddAccountButton = xpath(".//*[@id='dashboard_widget_createAccount']/a")
+Main.ControlPanel.AccountName = xpath(".//*[@id='account-group-all']//*[@class='account']//a[@class='name inv' and text()='Test Account 1']")
+
+#CreateAccount Form
+CreateAcct.Form.Accountame = xpath(".//input[@class='create-account-ctrl-account-name' and @name='accountName']")
+CreateAcct.Form.CheckHryvna = xpath(".//*[@class='create-account-ctrl-currency' and @data-name = '₴']//input[@class='create-account-ctrl-currency-chk' and @type='checkbox']")
+CreateAcct.Form.AddAccountButton = xpath(".//*[@class='create-account-ctrl-create-btn-wrap']//a[@class='template_button create-account-ctrl-create-btn']")
+
+#Accounts
+Accounts.Main.Panel = xpath(".//ul[@id='header-nav-dasboard']//a[@class="active" and @href='/app/Accounts.aspx']")
+Accounts.Account.Name = xpath(".//*[@class='accountitem']//*[@class='name']//a[text()='Test Account 1']")
+Accounts.Delete.Button = xpath(".//*[@class = 'accountitem']//*[@class='controls']//a[text()='Delete']//..//..//*[@class='name']//a[text()='Test Account 1']")
+Accounts.Form.ConfirmDelete = xpath(".//input[@class='updatebutton' and @type = 'submit' and @value = 'Delete']")
+
+

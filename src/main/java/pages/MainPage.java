@@ -1,7 +1,9 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class MainPage extends ParentPage {
     public MainPage(WebDriver webDriver) {
@@ -24,4 +26,16 @@ public class MainPage extends ParentPage {
          return false;
      }
  }
+
+public void signOut(){
+        try {
+            WebElement webElement = webDriver.findElement(By.id("ctl00_ctl00_Top_LV2_LoginStatus2"));
+            webElement.click();
+            logger.info("Sign-In was initialized");
+        } catch (Exception e ){
+            logger.error("Cannot work with element");
+            Assert.fail("Cannot work with element");
+        }
+
+}
 }
