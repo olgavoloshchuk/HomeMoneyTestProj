@@ -18,8 +18,8 @@ public class LoginPage extends ParentPage {
             logger.info(login + " was input into input login");
 
         } catch (Exception e){
-            logger.error("Cannot work with element");
-            Assert.fail("Cannot work with element");
+            logger.error("Cannot enter login");
+            Assert.fail("Cannot enter login");
         }
 
     }
@@ -32,8 +32,8 @@ public class LoginPage extends ParentPage {
             logger.info(pass + " was input into input password");
 
         } catch (Exception e){
-            logger.error("Cannot work with element");
-            Assert.fail("Cannot work with element");
+            logger.error("Cannot enter password");
+            Assert.fail("Cannot enter password");
         }
 
     }
@@ -49,11 +49,19 @@ public class LoginPage extends ParentPage {
         }
     }
 
+    public boolean isLoginError(){
+        try {
+            return webDriver.findElement(By.id("ctl00_Main_error")).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
     public boolean isSignInButtonPresent(){
         try {
-            return webDriver.findElement(By.id("ctl00_Main_LoginButton")).isDisplayed();
+            return webDriver.findElement(By.id("ctl00_Main_LoginButton")).isEnabled();
         } catch (Exception e){
             return false;
         }
     }
+
 }
