@@ -1,5 +1,6 @@
 package pages;
 
+import libs.ActionsWithElements;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +10,7 @@ public class ParentPage {
     WebDriver webDriver;
     String expectedUrl;
     final String baseUrl = "https://homemoney.ua";
+    ActionsWithElements actionsWithElements;
 
     public ParentPage(WebDriver webDriver, String expectedUrl) {
         this.webDriver = webDriver;
