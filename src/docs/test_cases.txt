@@ -27,6 +27,7 @@ Expected result for steps 2-4:
 5. In the upper line press reference "Sign out"
 
 Expected result for step 5:
+- https://homemoney.ua/ is opened
 - Button "Sign In" is enable
 
 Test Steps:

@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.LoginPage;
 import pages.MainPage;
+import pages.ParentPage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -17,6 +18,7 @@ public class ParentTest {
     Logger logger = Logger.getLogger(getClass());
     protected LoginPage loginPage;
     protected MainPage mainPage;
+    protected ParentPage parentPage;
 
     @Before
     public void setUp() {
