@@ -46,6 +46,18 @@ public class ActionsWithElements {
         }
     }
 
+    public boolean isElementEnabled (WebElement webElement) {
+        try {
+            boolean state = webElement.isEnabled();
+            logger.info("Element is enabled -> " + state);
+            return  state;
+
+        } catch (Exception e) {
+            logger.info("Element is enabled - > false");
+            return false;
+        }
+    }
+
     private void printErrorAndStopTest(Exception e) {
         logger.error("Cannot work with element");
         Assert.fail("Cannot work with element");

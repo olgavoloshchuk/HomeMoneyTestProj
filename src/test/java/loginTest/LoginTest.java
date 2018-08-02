@@ -10,9 +10,11 @@ public class LoginTest extends ParentTest {
         loginPage.enterLogin("olga.voloshchuk@gmail.com");
         loginPage.enterPass("Mytestpass");
         loginPage.clickOnSignInButton();
+        mainPage.checkCurrentUrl();
         checkAC("Sign-out is not present", mainPage.isSignOutRefPresent(), true);
-        checkAC("Control Panel is not opened", mainPage.isControlPanelOpened(), true);
+//        checkAC("Control Panel is not opened", mainPage.isControlPanelOpened(), true);
         mainPage.signOut();
+        parentPage.checkCurrentUrl();
         checkAC("Sign out was not success", loginPage.isSignInButtonPresent(), true);
     }
 
@@ -22,6 +24,7 @@ public class LoginTest extends ParentTest {
         loginPage.enterLogin("olga.voloshchuk@gmail.com");
         loginPage.enterPass("Mytestpass1");
         loginPage.clickOnSignInButton();
+        loginPage.checkCurrentUrl();
         checkAC("Success login was not expected", loginPage.isSignInButtonPresent(), true);
         checkAC("Success login was not expected", loginPage.isLoginError(), true);
 
