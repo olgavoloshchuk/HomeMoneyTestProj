@@ -68,10 +68,10 @@ Expected result for steps 2-4:
 - Reference "Sign out" is seen in the upper line
 
 Test Steps:
-5. At the bookmark "Control panel" press button "Add account"
-6. In the form "Add account" enter account name = "Test account 1"
+5. Open page "Accounts" and press "Add Account" button
+6. At the page "Accounts" iIn the form "Account Name" enter account name = "Test account 1"
 7. Select check box for currency "₴"
-8. Press button "Add account"
+8. Press button "Add"
 
 Expected Result for steps 5-8:
 - At the "Control panel" account "Test account 1" is seen
