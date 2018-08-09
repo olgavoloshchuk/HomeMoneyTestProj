@@ -5,19 +5,29 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
 public class ActionsWithElements {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
+    WebDriverWait webDriverWait5;
+    WebDriverWait webDriverWait10;
+    WebDriverWait webDriverWait20;
 
     public ActionsWithElements(WebDriver webDriver) {
+
         this.webDriver = webDriver;
+        webDriverWait5 = new WebDriverWait(webDriver, 5);
+        webDriverWait10 = new WebDriverWait(webDriver, 10);
+        webDriverWait20 = new WebDriverWait(webDriver, 20);
     }
 
     public void enterTextToElement (WebElement webElement, String text) {
         try {
+            webDriverWait10.until(ExpectedConditions.visibilityOf(webElement));
             webElement.clear();
             webElement.sendKeys(text);
             logger.info(text + " was entered to element");
@@ -29,6 +39,7 @@ public class ActionsWithElements {
 
     public void clickOnElement (WebElement webElement) {
         try {
+            webDriverWait5.until(ExpectedConditions.elementToBeClickable(webElement));
             webElement.click();
             logger.info("Element was clicked");
 

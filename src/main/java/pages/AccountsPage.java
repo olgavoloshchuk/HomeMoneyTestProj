@@ -47,12 +47,17 @@ public class AccountsPage extends ParentPage {
         pressAddButton();
     }
 
-    public void isAccountExists(String accountName) {
-        actionsWithElements.isElementDisplayed(".//a[contains(text(),'" + accountName + "')]");
+    public boolean isAccountExists(String accountName) {
+       return actionsWithElements.isElementDisplayed(".//*[@class = 'accountitem']//*[@class='name']//a[text()='"+accountName+"']");
     }
 
     public void deleteAccount (String accountName) {
-        WebElement webElement = webDriver.findElement(By.xpath("accountName"));
-        actionsWithElements.clickOnElement(webElement);
+            actionsWithElements.clickOnElement(
+                    webDriver.
+                            findElement(By.xpath(".//*[@class = 'accountitem']//*[@class='name']//a[text()='" + accountName + "']//..//..//*[@class='controls']//a[text()='Delete'])")));
+            actionsWithAllerts.allertAccept();
+            actionsWithElements.clickOnElement(
+                    webDriver.findElement(By.xpath(".//input[@class='updatebutton' and @type = 'submit' and @value = 'Delete']"))
+            );
     }
 }
