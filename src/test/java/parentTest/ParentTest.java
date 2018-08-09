@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.AccountsPage;
 import pages.LoginPage;
 import pages.MainPage;
-//import pages.ParentPage;
+import pages.ParentPage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -19,7 +19,7 @@ public class ParentTest {
     Logger logger = Logger.getLogger(getClass());
     protected LoginPage loginPage;
     protected MainPage mainPage;
-//    protected ParentPage parentPage;
+    protected ParentPage parentPage;
     protected AccountsPage accountsPage;
 
     @Before
@@ -32,6 +32,7 @@ public class ParentTest {
         loginPage = new LoginPage(webDriver);
         mainPage = new MainPage(webDriver);
         accountsPage = new AccountsPage(webDriver);
+        parentPage = new ParentPage(webDriver, "/");
     }
 
     @After

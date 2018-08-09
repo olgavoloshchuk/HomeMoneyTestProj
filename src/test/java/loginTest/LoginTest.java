@@ -7,16 +7,14 @@ public class LoginTest extends ParentTest {
     @Test
     public void validLogIn() {
         loginPage.openPage("/login.aspx");
-  //      checkAC("Sign-in was not present", loginPage.isSignInButtonPresent(), true);
         loginPage.enterLogin("olga.voloshchuk@gmail.com");
-/*        loginPage.enterPass("Mytestpass");
+        loginPage.enterPass("Mytestpass");
         loginPage.clickOnSignInButton();
         mainPage.checkCurrentUrl();
         checkAC("Sign-out is not present", mainPage.isSignOutRefPresent(), true);
-//        checkAC("Control Panel is not opened", mainPage.isControlPanelOpened(), true);
         mainPage.signOut();
         parentPage.checkCurrentUrl();
-        checkAC("Sign out was not success", loginPage.isSignInButtonPresent(), true);*/
+        checkAC("Sign out was not success", loginPage.isSignInButtonPresent(), true);
     }
 
     @Test
