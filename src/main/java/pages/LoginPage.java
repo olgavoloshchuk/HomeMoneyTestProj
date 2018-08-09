@@ -28,17 +28,6 @@ public class LoginPage extends ParentPage {
 
     public void enterLogin(String login) {
         actionsWithElements.enterTextToElement(loginInput, login);
-/*        try {
-         //   WebElement webElement = loginInput;//webDriver.findElement(By.id("ctl00_Main_login"));
-            WebElement webElement = webDriver.findElement(By.id("ctl00_Main_login"));
-            webElement.clear();
-            webElement.sendKeys(login);
-            logger.info(login + " was input into input login");
-
-        } catch (Exception e){
-            logger.error("Cannot enter login");
-            Assert.fail("Cannot enter login");
-        }*/
     }
 
     public void enterPass(String pass) {
@@ -68,8 +57,8 @@ public class LoginPage extends ParentPage {
         enterLogin(login);
         enterPass(password);
         actionsWithElements.clickOnElement(submitButton);
-        mainPage.checkCurrentUrl();
-        mainPage.isSignOutRefPresent();
+       // mainPage.checkCurrentUrl();
+       // mainPage.isSignOutRefPresent();
 
 
     }

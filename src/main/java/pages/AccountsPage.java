@@ -7,6 +7,9 @@ import org.openqa.selenium.support.FindBy;
 
 public class AccountsPage extends ParentPage {
 
+    @FindBy(xpath = ".//a[@href='/app/Accounts.aspx']")
+    private WebElement accountsPageMenu;
+
     @FindBy(id = "ctl00_ctl00_Main_Main_acList_btnAddAccount")
     private WebElement addAccountButton;
 
@@ -23,6 +26,12 @@ public class AccountsPage extends ParentPage {
         super(webDriver, "/app/accounts.aspx");
     }
 
+    public void goToAccountsPage () {
+      //   actionsWithElements.clickOnElement(accountsPageMenu);
+        WebElement webElement = webDriver.findElement(By.xpath(".//a[@href='/app/Accounts.aspx']"));
+        webElement.click();
+    }
+
     public void pressAccountAddButton() {
         actionsWithElements.clickOnElement(addAccountButton);
     }
@@ -32,7 +41,7 @@ public class AccountsPage extends ParentPage {
     }
 
     public void setCurrencyUAH() {
-        actionsWithElements.setCheckBoxState(currencyUAHCheckbox, "checked");
+        actionsWithElements.setCheckBoxState(currencyUAHCheckbox, "check");
     }
 
     public void pressAddButton() {
@@ -54,7 +63,7 @@ public class AccountsPage extends ParentPage {
     public void deleteAccount (String accountName) {
             actionsWithElements.clickOnElement(
                     webDriver.
-                            findElement(By.xpath(".//*[@class = 'accountitem']//*[@class='name']//a[text()='" + accountName + "']//..//..//*[@class='controls']//a[text()='Delete'])")));
+                            findElement(By.xpath(".//*[@class = 'accountitem']//*[@class='name']//a[text()='" + accountName + "']//..//..//*[@class='controls']//a[text()='Delete']")));
             actionsWithAllerts.allertAccept();
             actionsWithElements.clickOnElement(
                     webDriver.findElement(By.xpath(".//input[@class='updatebutton' and @type = 'submit' and @value = 'Delete']"))

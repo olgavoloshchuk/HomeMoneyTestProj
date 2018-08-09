@@ -11,15 +11,26 @@ public class AddAccountOperations extends ParentTest {
     @Test
     public void addAccountOperations() {
         loginPage.userValidLogin("olga.voloshchuk@gmail.com", "Mytestpass");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        };
+        accountsPage.goToAccountsPage();
         accountsPage.addAccount(accountName1);
         checkAC("Account was not added", accountsPage.isAccountExists(accountName1),true);
         accountsPage.addAccount(accountName2);
         checkAC("Account was not added", accountsPage.isAccountExists(accountName2),true);
-
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        };
         accountsPage.deleteAccount(accountName1);
         checkAC("Account was not deleted", accountsPage.isAccountExists(accountName1),false);
         accountsPage.deleteAccount(accountName2);
         checkAC("Account was not deleted", accountsPage.isAccountExists(accountName2),false);
+        mainPage.signOut();//shuold be account page
     }
 
 
