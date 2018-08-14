@@ -1,13 +1,17 @@
 #login form
-Login.login = xpath(".//input[@id='ctl00_Main_login']")
-Login.password = xpath(".//input[@id='ctl00_Main_password']")
-Login.SubmitButton = xpath(".//input[@id='ctl00_Main_LoginButton']")
-Login.CheckPass = xpath(".//*[@id='ctl00_Main_error']")
+Login.Form.login = xpath(".//input[@id='ctl00_Main_login']")
+Login.Form.password = xpath(".//input[@id='ctl00_Main_password']")
+Login.Form.SubmitButton = xpath(".//input[@id='ctl00_Main_LoginButton']")
 
 #Main Form
-Main.SignOut = xpath(".//a[@id='ctl00_ctl00_Top_LV2_LoginStatus2']")
-Main.ControlPanel.AddAccountButton = xpath(".//*[@id='dashboard_widget_createAccount']/a")
-Main.ControlPanel.AccountName = xpath(".//*[@id='account-group-all']//*[@class='account']//a[@class='name inv' and text()='Test Account 1']")
+Main.Login.Name = xpath(".//*[@id='account-header']//*[text()='olga.voloshchuk@gmail.com']")
+Main.Login.Status = xpath(".//*[@id='account-header']//a[@id='ctl00_ctl00_Top_LV2_LoginStatus2']")
+Main.Active.Bookmark = xpath(".//ul[@id='header-nav-dasboard']//a[@class='active']")
+
+#Control Panel
+COntrolPanel.Main.Form = xpath(".//*[@id='header-nav-dasboard']//li[1]//a[@class='active']")
+Control.AddAccount.Button = xpath(".//*[@id='dashboard_widget_createAccount']/a")
+ControlPanel.AccountName = xpath(".//*[@id='account-group-all']//*[@class='account']//a[@class='name inv' and text()='Test Account 1']")
 
 #CreateAccount Form
 CreateAcct.Form.Accountame = xpath(".//input[@class='create-account-ctrl-account-name' and @name='accountName']")
@@ -16,8 +20,8 @@ CreateAcct.Form.AddAccountButton = xpath(".//*[@class='create-account-ctrl-creat
 
 #Accounts
 Accounts.Main.Panel = xpath(".//ul[@id='header-nav-dasboard']//a[@class="active" and @href='/app/Accounts.aspx']")
-Accounts.Account.Name = xpath(".//*[@class='accountitem']//*[@class='name']//a[text()='Test Account 1']")
-Accounts.Delete.Button = xpath(".//*[@class = 'accountitem']//*[@class='controls']//a[text()='Delete']//..//..//*[@class='name']//a[text()='Test Account 1']")
+Accounts.Account.Name = xpath(".//*[@class = 'accountitem']//*[@class='name']//a[text()='Test account 1']")
+Accounts.Delete.Button = xpath(".//*[@class = 'accountitem']//*[@class='name']//a[text()='Test account 1']//..//..//*[@class='controls']//a[text()='Delete']")
 Accounts.Form.ConfirmDelete = xpath(".//input[@class='updatebutton' and @type = 'submit' and @value = 'Delete']")
 
 

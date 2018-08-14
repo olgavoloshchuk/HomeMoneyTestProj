@@ -1,9 +1,11 @@
 package pages;
 
+import libs.ActionsWithAllerts;
 import libs.ActionsWithElements;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class ParentPage {
     Logger logger = Logger.getLogger(getClass());
@@ -11,10 +13,14 @@ public class ParentPage {
     String expectedUrl;
     final String baseUrl = "https://homemoney.ua";
     ActionsWithElements actionsWithElements;
+    ActionsWithAllerts actionsWithAllerts;
 
     public ParentPage(WebDriver webDriver, String expectedUrl) {
         this.webDriver = webDriver;
         this.expectedUrl = baseUrl + expectedUrl;
+        PageFactory.initElements(webDriver,this); //initialize of all elements in findby
+        actionsWithElements = new ActionsWithElements(webDriver);
+        actionsWithAllerts = new ActionsWithAllerts(webDriver);
     }
 
     public String getCurrentUrl() {

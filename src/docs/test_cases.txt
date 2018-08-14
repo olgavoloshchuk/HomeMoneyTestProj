@@ -68,10 +68,10 @@ Expected result for steps 2-4:
 - Reference "Sign out" is seen in the upper line
 
 Test Steps:
-5. At the bookmark "Control panel" press button "Add account"
-6. In the form "Add account" enter account name = "Test account 1"
+5. Open page "Accounts" and press "Add Account" button
+6. At the page "Accounts" iIn the form "Account Name" enter account name = "Test account 1"
 7. Select check box for currency "₴"
-8. Press button "Add account"
+8. Press button "Add"
 
 Expected Result for steps 5-8:
 - At the "Control panel" account "Test account 1" is seen
@@ -144,17 +144,15 @@ Expected result for step 27:
 - At bookmark "Transactions", menu "Transactions" transaction "Test account 2" -> "No category" with amount 200 is not seen.
 - At the "Control panel" form amount 0 is seen near "Test account 2"
 
-Test steps:
+Test steps (deleting of accounts):
 28. Open bookmark "Accounts"
-29. Under account "Test account 1" press reference "Delete"
-30. In the popup window press "Ok"
-31. Under account "Test account 2" press reference "Delete"
-32. In the popup window press "Ok"
+29. Under account "Test account 1" press reference "Delete" and In the popup window press "Ok"
+30. Under text "You are about to delete an account Test account 1" press "Delete" button
+31. Under account "Test account 2" press reference "Delete" and In the popup window press "Ok"
+32. Under text "You are about to delete an account Test account 2" press "Delete" button
 
 Expected result for steps 28-32:
-- At the "Control panel" account "Test account 1" is not seen
 - At bookmark "Accounts" account "Test account 1" is not seen
-- At the "Control panel" account "Test account 2" is not seen
 - At bookmark "Accounts" account "Test account 2" is not seen
 
 Post conditions

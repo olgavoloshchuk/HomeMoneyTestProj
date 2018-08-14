@@ -1,6 +1,5 @@
 package pages;
 
-import libs.ActionsWithElements;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -58,8 +57,8 @@ public class LoginPage extends ParentPage {
         enterLogin(login);
         enterPass(password);
         actionsWithElements.clickOnElement(submitButton);
-        mainPage.checkCurrentUrl();
-        mainPage.isSignOutRefPresent();
+       // mainPage.checkCurrentUrl();
+       // mainPage.isSignOutRefPresent();
 
 
     }

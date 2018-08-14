@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.AccountsPage;
 import pages.LoginPage;
 import pages.MainPage;
 import pages.ParentPage;
@@ -19,6 +20,7 @@ public class ParentTest {
     protected LoginPage loginPage;
     protected MainPage mainPage;
     protected ParentPage parentPage;
+    protected AccountsPage accountsPage;
 
     @Before
     public void setUp() {
@@ -29,6 +31,8 @@ public class ParentTest {
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver);
         mainPage = new MainPage(webDriver);
+        accountsPage = new AccountsPage(webDriver);
+        parentPage = new ParentPage(webDriver, "/");
     }
 
     @After

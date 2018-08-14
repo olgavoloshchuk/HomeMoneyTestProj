@@ -12,7 +12,6 @@ public class LoginTest extends ParentTest {
         loginPage.clickOnSignInButton();
         mainPage.checkCurrentUrl();
         checkAC("Sign-out is not present", mainPage.isSignOutRefPresent(), true);
-//        checkAC("Control Panel is not opened", mainPage.isControlPanelOpened(), true);
         mainPage.signOut();
         parentPage.checkCurrentUrl();
         checkAC("Sign out was not success", loginPage.isSignInButtonPresent(), true);
