@@ -44,8 +44,8 @@ Post condition
 
 
 Test Case ID: 2
-Test Case Name: Add income and expense with sign-in, create account and delete account and operations
-Objective: Test of full cicle of sign-in, adding account, adding income and expense, deleting income, expense and account.
+Test Case Name: Add and delete accounts
+Objective: Test of adding and deleting accounts.
 
 Pre-conditions:
 - At computer installed latest version of Google Chrome Browser
@@ -74,7 +74,6 @@ Test Steps:
 8. Press button "Add"
 
 Expected Result for steps 5-8:
-- At the "Control panel" account "Test account 1" is seen
 - At bookmark "Accounts" account "Test account 1" is seen
 
 Test Steps:
@@ -84,72 +83,14 @@ Test Steps:
 12. Press button "Add account"
 
 Expected Result for steps 10-12:
-- At the "Control panel" account "Test account 2" is seen
 - At bookmark "Accounts" account "Test account 2" is seen
 
-Test Steps:
-13. Refresh page https://homemoney.ua/app/
-14. At the form "Expense" in the field "From ac..." select "Test acount 1" from drop down list
-15. Select "No category" in drop down list for "Category"
-16. Enter amount 100 near currency "₴"
-17. Press button "Add"
-
-Expected Result for steps 13-17:
-- At the "Control panel" form amount -100 is seen near "Test account 1"
-- At bookmark "Transactions", menu "Transactions" transaction "Test account 1" -> "No category" with amount -100 is seen.
-
-Test Steps:
-18. At the form "Income" in the field "To account" select "Test acount 2" from drop down list
-19. Select "No category" in drop down list for "Category"
-20. Enter amount 200 near currency "₴"
-21. Press button "Add"
-
-Expected Result for steps 18-21:
-- At the "Control panel" form amount 200 is seen near "Test account 2"
-- At bookmark "Transactions", menu "Transactions" transaction "Test account 2" -> "No category" with amount 200 is seen.
-
-Test Steps:
-22. At the form "Transfer" in the field "From ac..." select "Test acount 1" from drop down list,
-   in the field "To account" select "Test acount 2" from drop down list
-23. Enter amount 300 near currency "₴"
-24. Press button "Add"
-
-Expected Result for steps 22-24:
-- At the "Control panel" form amount -400 is seen near "Test account 1"
-- At the "Control panel" form amount 500 is seen near "Test account 2"
-- At bookmark "Transactions", menu "Transactions" transaction "Test account 1" -> "Test acount 2" with amount "300.00 ₴ → 300.00 ₴" is seen.
-
-Test Steps:
-25. Under bookmark "Control panel", at bookmark "Transactions"  near transaction "Test account 1" -> "Test acount 2" with amount "300.00 ₴ → 300.00 ₴" press
-   "X" (Remove transaction) and in the pop up menu press "Ok"
-
-Expected result for step 25:
-- At bookmark "Transactions", menu "Transactions" transaction "Test account 1" -> "Test acount 2" with amount "300.00 ₴ → 300.00 ₴" is not seen.
-- At the "Control panel" form amount -100 is seen near "Test account 1"
-- At the "Control panel" form amount 200 is seen near "Test account 2"
-
-Test steps:
-26. Under bookmark "Control panel", at bookmark "Transactions" near transaction "Test account 1" -> "No category" with amount -100 press
-   "X" (Remove transaction) and in the pop up menu press "Ok"
-
-Expected result for step 26:
-- At bookmark "Transactions", menu "Transactions" transaction "Test account 1" -> "No category" with amount -100 is not seen.
-- At the "Control panel" form amount 0 is seen near "Test account 1"
-
-Test steps:
-27. Under bookmark "Control panel", at bookmark "Transactions"  near transaction "Test account 2" -> "No category" with amount 200 press
-   "X" (Remove transaction) and in the pop up menu press "Ok"
-
-Expected result for step 27:
-- At bookmark "Transactions", menu "Transactions" transaction "Test account 2" -> "No category" with amount 200 is not seen.
-- At the "Control panel" form amount 0 is seen near "Test account 2"
-
 Test steps (deleting of accounts):
-28. Open bookmark "Accounts"
-29. Under account "Test account 1" press reference "Delete" and In the popup window press "Ok"
-30. Under text "You are about to delete an account Test account 1" press "Delete" button
-31. Under account "Test account 2" press reference "Delete" and In the popup window press "Ok"
-32. Under text "You are about to delete an account Test account 2" press "Delete" button
+13. Open bookmark "Accounts"
+14. Under account "Test account 1" press reference "Delete" and In the popup window press "Ok"
+15. In opened window press "Delete" button
+16. Under account "Test account 2" press reference "Delete" and In the popup window press "Ok"
+17. In opened window press "Delete" button
 
 Expected result for steps 28-32:
 - At bookmark "Accounts" account "Test account 1" is not seen
@@ -161,7 +102,7 @@ Post conditions
 
 Test Case ID: 3
 Test Case Name: Add new Category
-Objective: Test adding new Category and sub-category for expenses and incomes and deleting of empty Category
+Objective: Test adding and deleting Category
 
 Pre-conditions:
 - At computer installed latest version of Google Chrome Browser
@@ -181,25 +122,19 @@ Test Steps:
 
 Expected result for steps 2-4:
 - Page https://homemoney.ua/app/ is opened
-- E-mail "olga.voloshchuk@gmail.com" is seen in the upper line
 - Reference "Sign out" is seen in the upper line
 
 Test Steps:
 5. Open bookmark "Additional" menu "Categories"
 
 Expected result:
-- Form "Categories" is seen
+- Page https://homemoney.ua/app/categorymanager.aspx is open
 
 Test steps:
 6. In bookmark "Expenses" at form "Categoty" print name "Test exp 1"
 7. Press button "Save"
 Expected result for steps 6-7:
 - At bookmark "Expenses" in form "Categories" category "Test exp 1" is seen
-
-8. In bookmark "Expenses" at form "Categoty" print name "Test exp 2"
-9. Press button "Save"
-Expected result for steps 8-9:
-- At bookmark "Expenses" in form "Categories" category "Test exp 2" is seen
 
 8. In bookmark "Expenses" at form "Categoty" print name "Test sub-exp 1"
 9. Check check-box near "Make this subcategory of..."
@@ -209,78 +144,28 @@ Expected result for steps 8-11:
 - At bookmark "Expenses" in form "Categories" in category "Test exp 1" sub-category "Test sub-exp 1" is seen
 
 Test steps:
-12. In bookmark "Income" at form "Categoty" print name "Test inc 1"
-13. Press button "Save"
-Expected result for steps 12-13:
-- At bookmark "Income" in form "Categories" category "Test inc 1" is seen
-
-14. In bookmark "Income" at form "Categoty" print name "Test inc 2"
-15. Press button "Save"
-Expected result for steps 14-15:
-- At bookmark "Income" in form "Categories" category "Test inc 2" is seen
-
-16. In bookmark "Income" at form "Categoty" print name "Test sub-inc 1"
-17. Check check-box near "Make this subcategory of..."
-18. In drop-down list select category "Test inc 1"
-19. Press button "Save"
-Expected result for steps 16-19:
-- At bookmark "Income" in form "Categories" in category "Test inc 1" sub-category "Test sub-inc 1" is seen
-
-Test steps:
-20. At bookmark "Income" click on sub-category "Test sub-inc 1"
-21. Click on reference "Remove"
-22. In pop-up wondow click on button "Ok"
-
-Expected result for steps 20-22:
-- At bookmark "Income" in form "Categories" in category "Test inc 1" sub-category "Test sub-inc 1" is not seen
-
-Test steps:
-23. At bookmark "Income" click on sub-category "Test inc 1"
-24. Click on reference "Remove"
-25. In pop-up wondow click on button "Ok"
-
-Expected result for steps 23-25:
-- At bookmark "Income" in form "Categories" category "Test inc 1" is not seen
-
-Test steps:
-26. At bookmark "Expense" click on category "Test exp 1"
-27. Click on reference "Remove"
+12. At bookmark "Expense" click on category "Test exp 1"
+13. Click on reference "Remove"
 
 Expected result for steps 26-27:
 - At bookmark "Expense" message "Category or subcategory contains transactions. Transfer them to other categories" is seen
 - At bookmark "Expenses" in form "Categories" category "Test exp 1" is seen
 
 Test steps:
-28. At bookmark "Income" click on sub-category "Test sub-exp 1"
-29. Click on reference "Remove"
-30. In pop-up wondow click on button "Ok"
+14. At bookmark "Income" click on sub-category "Test sub-exp 1"
+15. Click on reference "Remove"
+16. In pop-up wondow click on button "Ok"
 
 Expected result for steps 28-30:
 - At bookmark "Income" in form "Categories" in category "Test exp 1" sub-category "Test sub-exp 1" is not seen
 
 Test steps:
-31. At bookmark "Expense" click on category "Test exp 1"
-32. Click on reference "Remove"
-33. In pop-up wondow click on button "Ok"
+17. At bookmark "Expense" click on category "Test exp 1"
+18. Click on reference "Remove"
+19. In pop-up wondow click on button "Ok"
 
 Expected result for steps 31-33:
 - At bookmark "Income" in form "Categories" category "Test exp 1" is not seen
-
-Test steps:
-34. At bookmark "Expense" click on category "Test exp 2"
-35. Click on reference "Remove"
-36. In pop-up wondow click on button "Ok"
-
-Expected result for steps 34-36:
-- At bookmark "Income" in form "Categories" category "Test exp 2" is not seen
-
-Test steps:
-37. At bookmark "Expense" click on category "Test inc 2"
-38. Click on reference "Remove"
-39. In pop-up wondow click on button "Ok"
-
-Expected result for steps 37-39:
-- At bookmark "Income" in form "Categories" category "Test inc 2" is not seen
 
 Post conditions
 - Press reference "Sign out" in the upper line

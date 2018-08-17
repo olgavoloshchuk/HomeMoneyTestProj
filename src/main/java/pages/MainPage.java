@@ -23,6 +23,23 @@ public class MainPage extends ParentPage {
     @FindBy(xpath = ".//*[@class='create-account-ctrl-currency' and @data-name = '₴']//input[@class='create-account-ctrl-currency-chk' and @type='checkbox']")
     private WebElement currencyCheckBox;
 
+    @FindBy(xpath = ".//*[@id='FormEdit_account_chzn']//a[@class='chzn-single']//b")
+    private WebElement expenceFromAcDD;
+
+    @FindBy(xpath = ".//*[@id='OperationAdd_categoryExp_chzn']//a//b")
+    private WebElement expenceCategoryDD;
+
+    @FindBy(id = "OperationAdd_total")
+    private WebElement expenceAmountEnterForm;
+
+    @FindBy(id = "OperationAdd_btnAdd")
+    private WebElement addExpenceButton;
+
+    @FindBy(xpath = ".//a[contains(text(), 'Additional')]")
+    private WebElement additionalMenu;
+
+    @FindBy(xpath = ".//li//a[@href='/app/CategoryManager.aspx']")
+    private WebElement categoriesSubMEnu;
 
     public MainPage(WebDriver webDriver) {
         super(webDriver, "/app/");
@@ -38,6 +55,32 @@ public class MainPage extends ParentPage {
 
     public void signOut() {
         actionsWithElements.clickOnElement(signOutRef);
+    }
+
+    public void selectExpenceFromAccountFromList(String accountName) {
+        actionsWithElements.clickOnElement(webDriver.findElement(By.xpath(".//a[@class='chzn-single']//*[contains(text(), 'Cash')]")));
+        actionsWithElements.clickOnElement(webDriver.findElement(By.xpath(".//li[text()='" + accountName + "']")));
+//        actionsWithElements.clickElementInDD
+//                (expenceFromAcDD, webDriver.findElement(By.xpath(".//li[text()='" + accountName + "']")));
+    }
+
+    public void selectExpenceCategoryFromList(String expenceCategoryName) {
+        actionsWithElements.clickElementInDD(
+                expenceCategoryDD, webDriver.findElement(By.xpath(".//li[text()='" + expenceCategoryName + "']"))
+        );
+    }
+
+    public void enterExpenceAmount(String expenceAmount) {
+        actionsWithElements.enterTextToElement(expenceAmountEnterForm, expenceAmount);
+    }
+
+    public void clickOnAddExpenceButton() {
+        actionsWithElements.clickOnElement(addExpenceButton);
+    }
+
+    public void menuAdditionalCatgoriesOpen() {
+        actionsWithElements.clickOnElement(additionalMenu);
+        actionsWithElements.clickOnElement(categoriesSubMEnu);
     }
 
 /*    public void clickAddAccountButton() {
