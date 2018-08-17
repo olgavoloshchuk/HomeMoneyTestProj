@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class ActionsWithElements {
         webDriverWait20 = new WebDriverWait(webDriver, 20);
     }
 
-    public void enterTextToElement (WebElement webElement, String text) {
+    public void enterTextToElement(WebElement webElement, String text) {
         try {
 
             webDriverWait10.until(ExpectedConditions.visibilityOf(webElement));
@@ -38,9 +39,9 @@ public class ActionsWithElements {
         }
     }
 
-    public void clickOnElement (WebElement webElement) {
+    public void clickOnElement(WebElement webElement) {
         try {
-            webDriverWait5.until(ExpectedConditions.elementToBeClickable(webElement));
+            webDriverWait20.until(ExpectedConditions.elementToBeClickable(webElement));
             webElement.click();
             logger.info("Element was clicked");
 
@@ -49,11 +50,11 @@ public class ActionsWithElements {
         }
     }
 
-    public boolean isElementDisplayed (WebElement webElement){
+    public boolean isElementDisplayed(WebElement webElement) {
         try {
             boolean state = webElement.isDisplayed();
             logger.info("Element is displayed -> " + state);
-            return  state;
+            return state;
 
         } catch (Exception e) {
             logger.info("Element is display - > false");
@@ -61,11 +62,11 @@ public class ActionsWithElements {
         }
     }
 
-    public boolean isElementEnabled (WebElement webElement) {
+    public boolean isElementEnabled(WebElement webElement) {
         try {
             boolean state = webElement.isEnabled();
             logger.info("Element is enabled -> " + state);
-            return  state;
+            return state;
 
         } catch (Exception e) {
             logger.info("Element is enabled - > false");
@@ -73,7 +74,7 @@ public class ActionsWithElements {
         }
     }
 
-    public boolean isElementDisplayed (String xPathLocator) {
+    public boolean isElementDisplayed(String xPathLocator) {
         try {
             WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
             return true;
@@ -81,6 +82,7 @@ public class ActionsWithElements {
             return false;
         }
     }
+
 
     //check if element exists
     public boolean isElementInList(String xPathLocator) {
@@ -115,6 +117,23 @@ public class ActionsWithElements {
         Assert.fail("Cannot work with element");
     }
 
+    public void selectValueInDD(WebElement dropDownList, String value) {
+        try {
+            Select select = new Select(dropDownList);
+            select.selectByValue(value);
+            logger.info(value + " was selected in DD");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+
+    }
+
+    public void clickElementInDD(WebElement dropDownList, WebElement dropDownElement) {
+        clickOnElement(dropDownList);
+        clickOnElement(dropDownElement);
+    }
+
+
     /**
      * Method set CheckBox State
      *
@@ -131,9 +150,7 @@ public class ActionsWithElements {
                 if (checkBox.isSelected() == true) {
                     clickOnElement(checkBox);
                 }
-            }
-            else
-            {
+            } else {
                 logger.error("CheckBox state can be only check or uncheck, cannot set CheckBox state");
                 Assert.fail("CheckBox state can be only check or uncheck, cannot set CheckBox state");
             }
@@ -141,4 +158,14 @@ public class ActionsWithElements {
             printErrorAndStopTest(e);
         }
     }
+
+    public void clickOnElement(String xPathLocator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
+            clickOnElement(webElement);
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
 }

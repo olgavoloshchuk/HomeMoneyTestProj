@@ -6,10 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.AccountsPage;
-import pages.LoginPage;
-import pages.MainPage;
-import pages.ParentPage;
+import pages.*;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -21,6 +18,7 @@ public class ParentTest {
     protected MainPage mainPage;
     protected ParentPage parentPage;
     protected AccountsPage accountsPage;
+    protected CategoriesPage categoriesPage;
 
     @Before
     public void setUp() {
@@ -32,6 +30,7 @@ public class ParentTest {
         loginPage = new LoginPage(webDriver);
         mainPage = new MainPage(webDriver);
         accountsPage = new AccountsPage(webDriver);
+        categoriesPage = new CategoriesPage(webDriver);
         parentPage = new ParentPage(webDriver, "/");
     }
 

@@ -22,14 +22,15 @@ public class AccountsPage extends ParentPage {
     @FindBy(id = "ctl00_ctl00_Main_Main_acList_hmNewAccount_btnSave")
     private WebElement addButton;
 
+    @FindBy(id="ctl00_ctl00_Top_LV2_LoginStatus2")
+    private WebElement signOutRef;
+
     public AccountsPage(WebDriver webDriver) {
         super(webDriver, "/app/accounts.aspx");
     }
 
     public void goToAccountsPage () {
-      //   actionsWithElements.clickOnElement(accountsPageMenu);
-        WebElement webElement = webDriver.findElement(By.xpath(".//a[@href='/app/Accounts.aspx']"));
-        webElement.click();
+         actionsWithElements.clickOnElement(accountsPageMenu);
     }
 
     public void pressAccountAddButton() {
@@ -68,5 +69,9 @@ public class AccountsPage extends ParentPage {
             actionsWithElements.clickOnElement(
                     webDriver.findElement(By.xpath(".//input[@class='updatebutton' and @type = 'submit' and @value = 'Delete']"))
             );
+    }
+
+    public void signOut() {
+        actionsWithElements.clickOnElement(signOutRef);
     }
 }
