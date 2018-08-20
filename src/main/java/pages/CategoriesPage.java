@@ -19,6 +19,12 @@ public class CategoriesPage extends ParentPage {
     @FindBy(xpath = ".//a[text()='Test exp 1]")
     private WebElement categoryName;
 
+    @FindBy(id="categoryManager-main-body-func-subcatChk")
+    private WebElement makeSubcategoryCheckbox;
+
+    @FindBy(xpath=".//ul[@class='chzn-results']")
+    private WebElement categoryDD;
+
     public CategoriesPage(WebDriver webDriver) {
         super(webDriver, "/app/categorymanager.aspx");
     }
@@ -42,5 +48,27 @@ public class CategoriesPage extends ParentPage {
         actionsWithAllerts.allertAccept();
         actionsWithElements.clickOnElement(categoryRemoveButton);
         actionsWithAllerts.allertAccept();
+    }
+
+    public void addSubCategory(String categoryExpName, String subCategoryExpName) {
+        actionsWithElements.enterTextToElement(categoryNameInput, subCategoryExpName);
+        actionsWithElements.setCheckBoxState(makeSubcategoryCheckbox, "check");
+        actionsWithElements.selectValueInDD(categoryDD, categoryExpName);
+        actionsWithElements.clickOnElement(categorySaveButton);
+    }
+
+    public boolean isSubCategoryExist(String categoryExpName, String subCategoryExpName) {
+        return actionsWithElements.isElementDisplayed(".//a[text()='" +subCategoryExpName+"']//..//..//a[text()='"+categoryExpName+"']");
+    }
+
+    public boolean isDeletingErrorMsgSeen(String errorMsg) {
+        return actionsWithElements.isElementDisplayed(".//*[text()='"+errorMsg+"']");
+    }
+
+    public void deleteSubCategory(String subCategoryExpName) {
+        actionsWithElements.clickOnElement(".//a[text()='"+subCategoryExpName+"']");
+        actionsWithElements.clickOnElement(categoryRemoveButton);
+        actionsWithAllerts.allertAccept();
+
     }
 }
