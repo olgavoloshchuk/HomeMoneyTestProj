@@ -17,12 +17,23 @@ public class ActionsWithAllerts {
     }
 
     public void allertAccept() {
-        webDriverWait5.until(ExpectedConditions.alertIsPresent());
-        webDriver.switchTo().alert().accept();
+
+        try {
+            webDriverWait5.until(ExpectedConditions.alertIsPresent());
+            webDriver.switchTo().alert().accept();
+        } catch (Exception e){
+            logger.info("Alert isn't present");
+        }
+
     }
 
     public void allertDismiss() {
-        webDriverWait5.until(ExpectedConditions.alertIsPresent());
-        webDriver.switchTo().alert().dismiss();
+
+        try {
+            webDriverWait5.until(ExpectedConditions.alertIsPresent());
+            webDriver.switchTo().alert().dismiss();
+        } catch (Exception e) {
+            logger.info("Alert isn't present");
+        }
     }
 }
