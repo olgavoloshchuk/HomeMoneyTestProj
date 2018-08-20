@@ -22,7 +22,7 @@ public class CategoriesPage extends ParentPage {
     @FindBy(id="categoryManager-main-body-func-subcatChk")
     private WebElement makeSubcategoryCheckbox;
 
-    @FindBy(xpath=".//ul[@class='chzn-results']")
+    @FindBy(xpath=".//a[@class='chzn-single']")
     private WebElement categoryDD;
 
     public CategoriesPage(WebDriver webDriver) {
@@ -45,7 +45,7 @@ public class CategoriesPage extends ParentPage {
 
     public void deleteCategory(String categoryExpName) {
         actionsWithElements.clickOnElement(".//a[text()='"+categoryExpName+"']");
-        actionsWithAllerts.allertAccept();
+     //   actionsWithAllerts.allertAccept();
         actionsWithElements.clickOnElement(categoryRemoveButton);
         actionsWithAllerts.allertAccept();
     }
@@ -53,7 +53,10 @@ public class CategoriesPage extends ParentPage {
     public void addSubCategory(String categoryExpName, String subCategoryExpName) {
         actionsWithElements.enterTextToElement(categoryNameInput, subCategoryExpName);
         actionsWithElements.setCheckBoxState(makeSubcategoryCheckbox, "check");
-        actionsWithElements.selectValueInDD(categoryDD, categoryExpName);
+        Utils.waitABit(5);
+        actionsWithElements.clickOnElement(categoryDD);
+        actionsWithElements.clickOnElement(".//ul[@class='chzn-results']//li[text()='"+categoryExpName+"']");
+      //  actionsWithElements.selectValueInDD(categoryDD, categoryExpName);
         actionsWithElements.clickOnElement(categorySaveButton);
     }
 

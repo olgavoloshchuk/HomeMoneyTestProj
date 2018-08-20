@@ -57,17 +57,14 @@ public class MainPage extends ParentPage {
         actionsWithElements.clickOnElement(signOutRef);
     }
 
-    public void selectExpenceFromAccountFromList(String accountName) {
-        actionsWithElements.clickOnElement(webDriver.findElement(By.xpath(".//a[@class='chzn-single']//*[contains(text(), 'Cash')]")));
-        actionsWithElements.clickOnElement(webDriver.findElement(By.xpath(".//li[text()='" + accountName + "']")));
-//        actionsWithElements.clickElementInDD
-//                (expenceFromAcDD, webDriver.findElement(By.xpath(".//li[text()='" + accountName + "']")));
+    public void selectExpenceAccountFromList(String accountName) {
+        actionsWithElements.clickOnElement(expenceFromAcDD);
+        actionsWithElements.clickOnElement(".//li[text()='" + accountName + "']");
     }
 
     public void selectExpenceCategoryFromList(String expenceCategoryName) {
-        actionsWithElements.clickElementInDD(
-                expenceCategoryDD, webDriver.findElement(By.xpath(".//li[text()='" + expenceCategoryName + "']"))
-        );
+        actionsWithElements.clickOnElement(expenceCategoryDD);
+        actionsWithElements.clickOnElement(".//li[text()='" + expenceCategoryName + "']");
     }
 
     public void enterExpenceAmount(String expenceAmount) {
@@ -81,6 +78,24 @@ public class MainPage extends ParentPage {
     public void menuAdditionalCatgoriesOpen() {
         actionsWithElements.clickOnElement(additionalMenu);
         actionsWithElements.clickOnElement(categoriesSubMEnu);
+    }
+
+//    public void adjustAccountBalance(String adjustedAccountName, String adjustCategory, String adjustedAmount) {
+//        actionsWithElements.clickOnElement(accountAdditionalFunctionsButton);
+//        actionsWithElements.clickOnElement(adjustAccountMenu);
+//        actionsWithElements.enterTextToElement(residueBalance);
+//        actionsWithElements.clickOnElement(selectCategoryDD);
+//        actionsWithElements.clickOnElement("");
+//        actionsWithElements.clickOnElement(adjustButton);
+//
+//    }
+
+    public String checkAccountBalance(String adjustedAccountName) {
+        return "500";
+    }
+
+    public boolean isExpenceAdded(String expenceAccount, String expenceCategory, String expenceAmount) {
+        return true;
     }
 
 /*    public void clickAddAccountButton() {
