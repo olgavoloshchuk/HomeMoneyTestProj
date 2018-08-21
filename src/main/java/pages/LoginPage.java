@@ -1,10 +1,13 @@
 package pages;
 
+import libs.Utils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import javax.rmi.CORBA.Util;
 
 public class LoginPage extends ParentPage {
     MainPage mainPage;
@@ -23,7 +26,9 @@ public class LoginPage extends ParentPage {
     private WebElement loginErorrMessage;
 
     public LoginPage(WebDriver webDriver) {
+
         super(webDriver, "/login.aspx");
+        mainPage = new MainPage(webDriver);
     }
 
     public void enterLogin(String login) {
@@ -57,8 +62,8 @@ public class LoginPage extends ParentPage {
         enterLogin(login);
         enterPass(password);
         actionsWithElements.clickOnElement(submitButton);
-       // mainPage.checkCurrentUrl();
-       // mainPage.isSignOutRefPresent();
+        mainPage.checkCurrentUrl();
+        mainPage.isSignOutRefPresent();
 
 
     }

@@ -53,12 +53,6 @@ Pre-conditions:
 
 Test steps:
 1. In browser Google Chrome open page https://homemoney.ua/
-
-Expected result for step 1:
-- Forms for entering "Enter your email or login:" and "Enter password:" are seen
-- Button "Sign In" is enable
-
-Test Steps:
 2. In the field "Enter your email or login:" enter e-mail "olga.voloshchuk@gmail.com"
 3. In the field "Enter password:" enter password "Mytestpass"
 4. Press key "Enter"
@@ -101,8 +95,8 @@ Post conditions
 - Close browser
 
 Test Case ID: 3
-Test Case Name: Add new Category
-Objective: Test adding and deleting Category
+Test Case Name: Add new Category and sub Category
+Objective: Test adding and deleting Category and sub Category
 
 Pre-conditions:
 - At computer installed latest version of Google Chrome Browser
@@ -110,12 +104,6 @@ Pre-conditions:
 
 Test steps:
 1. In browser Google Chrome open page https://homemoney.ua/
-
-Expected result for step 1:
-- Forms for entering "Enter your email or login:" and "Enter password:" are seen
-- Button "Sign In" is seen
-
-Test Steps:
 2. In the field "Enter your email or login:" enter e-mail "olga.voloshchuk@gmail.com"
 3. In the field "Enter password:" enter password "Mytestpass"
 4. Press key "Enter"
@@ -134,7 +122,7 @@ Test steps:
 6. In bookmark "Expenses" at form "Categoty" print name "Test exp 1"
 7. Press button "Save"
 Expected result for steps 6-7:
-- At bookmark "Expenses" in form "Categories" category "Test exp 1" is seen
+- Category "Test exp 1" is seen
 
 8. In bookmark "Expenses" at form "Categoty" print name "Test sub-exp 1"
 9. Check check-box near "Make this subcategory of..."
@@ -152,23 +140,24 @@ Expected result for steps 26-27:
 - At bookmark "Expenses" in form "Categories" category "Test exp 1" is seen
 
 Test steps:
-14. At bookmark "Income" click on sub-category "Test sub-exp 1"
+14. At bookmark "Expense" click on sub-category "Test sub-exp 1"
 15. Click on reference "Remove"
 16. In pop-up wondow click on button "Ok"
 
 Expected result for steps 28-30:
-- At bookmark "Income" in form "Categories" in category "Test exp 1" sub-category "Test sub-exp 1" is not seen
+- At bookmark "Expense" in form "Categories" in category "Test exp 1" sub-category "Test sub-exp 1" is not seen
 
 Test steps:
 17. At bookmark "Expense" click on category "Test exp 1"
 18. Click on reference "Remove"
-19. In pop-up wondow click on button "Ok"
+19. In pop-up window click on button "Ok"
 
 Expected result for steps 31-33:
-- At bookmark "Income" in form "Categories" category "Test exp 1" is not seen
+- At bookmark "Expense" in form "Categories" category "Test exp 1" is not seen
 
 Post conditions
 - Press reference "Sign out" in the upper line
+- Close browser
 
 Test Case ID: 4
 Test Case Name: Adjust account rest
@@ -180,54 +169,37 @@ Pre-conditions:
 
 Test steps:
 1. In browser Google Chrome open page https://homemoney.ua/
-
-Expected result for step 1:
-- Forms for entering "Enter your email or login:" and "Enter password:" are seen
-- Button "Sign In" is seen
-
-Test Steps:
 2. In the field "Enter your email or login:" enter e-mail "olga.voloshchuk@gmail.com"
 3. In the field "Enter password:" enter password "Mytestpass"
 4. Press key "Enter"
 
 Expected result for steps 2-4:
 - Page https://homemoney.ua/app/ is opened
-- E-mail "olga.voloshchuk@gmail.com" is seen in the upper line
 - Reference "Sign out" is seen in the upper line
 
 Test steps:
 5. At "Control panel" near account "Cash" press hidden button for "Additional functions" and in drop-down list select "Adjust".
 6. In pop window "Adjustment of the balance" in block "Residue" enter amount 500.
+7. In pop window "Adjustment of the balance"  select "Category" from drop-down list = "No category"
 8. In pop window "Adjustment of the balance" press button "Adjust"
+and press button "Adjust".
 
 Expected results for steps 5-8
-- Pop window "Adjustment of the balance" is open
-- Form for selecting "Category" is bordered with red frame
+- Near account "Cash" amount 500 is seen
 
 Test steps:
 9. At "Control panel" near account "Cash" press hidden button for "Additional functions" and in drop-down list select "Adjust".
-10. In pop window "Adjustment of the balance" in block "Residue" enter amount 500.
+10. In pop window "Adjustment of the balance" in block "Residue" enter amount 0.
 11. In pop window "Adjustment of the balance"  select "Category" from drop-down list = "No category"
 12. In pop window "Adjustment of the balance" press button "Adjust"
 and press button "Adjust".
 
-Expected results for steps 9-12
-- Bookmark "Control panel" is opend
-- Near account "Cash" amount 500 is seen
-
-Test steps:
-13. At "Control panel" near account "Cash" press hidden button for "Additional functions" and in drop-down list select "Adjust".
-14. In pop window "Adjustment of the balance" in block "Residue" enter amount 0.
-15. In pop window "Adjustment of the balance"  select "Category" from drop-down list = "No category"
-16. In pop window "Adjustment of the balance" press button "Adjust"
-and press button "Adjust".
-
-Expected results for steps 13-16
-- Bookmark "Control panel" is opend
+Expected results for steps 2-12
 - Near account "Cash" amount 0 is seen
 
 Post conditions
 - Press reference "Sign out" in the upper line
+- Close browser
 
 Test Case ID: 5
 Test Case Name: Add new currency
