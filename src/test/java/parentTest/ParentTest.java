@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import pages.*;
 
 import java.io.File;
@@ -19,6 +20,7 @@ public class ParentTest {
     protected ParentPage parentPage;
     protected AccountsPage accountsPage;
     protected CategoriesPage categoriesPage;
+    protected SettingPage settingPage;
 
     @Before
     public void setUp() {
@@ -31,7 +33,9 @@ public class ParentTest {
         mainPage = new MainPage(webDriver);
         accountsPage = new AccountsPage(webDriver);
         categoriesPage = new CategoriesPage(webDriver);
+        settingPage = new SettingPage(webDriver);
         parentPage = new ParentPage(webDriver, "/");
+        Actions actions = new Actions(webDriver);
     }
 
     @After

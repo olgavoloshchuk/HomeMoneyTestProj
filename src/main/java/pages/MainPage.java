@@ -1,5 +1,7 @@
 package pages;
 
+import libs.ActionsWithElements;
+import libs.Utils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +25,7 @@ public class MainPage extends ParentPage {
     @FindBy(xpath = ".//*[@class='create-account-ctrl-currency' and @data-name = '₴']//input[@class='create-account-ctrl-currency-chk' and @type='checkbox']")
     private WebElement currencyCheckBox;
 
-    @FindBy(xpath = ".//*[@id='FormEdit_account_chzn']//a[@class='chzn-single']//b")
+    @FindBy(xpath = ".//*[@id='FormEdit_account_chzn']//a[@class='chzn-single']")
     private WebElement expenceFromAcDD;
 
     @FindBy(xpath = ".//*[@id='OperationAdd_categoryExp_chzn']//a//b")
@@ -40,6 +42,19 @@ public class MainPage extends ParentPage {
 
     @FindBy(xpath = ".//li//a[@href='/app/CategoryManager.aspx']")
     private WebElement categoriesSubMEnu;
+
+    @FindBy(xpath = ".//*[@class='operation_view_last_item']")
+    private WebElement allOpers;
+
+    @FindBy(xpath = ".//li//a[@href='/app/Additional.aspx']")
+    private WebElement settingsSubMEnu;
+
+    @FindBy(id = "BalanceInDefaultCurrency")
+    private WebElement networthBalance;
+
+    @FindBy(xpath = ".//*[@class='account']")
+    private WebElement defaultAccount;
+
 
     public MainPage(WebDriver webDriver) {
         super(webDriver, "/app/");
@@ -62,9 +77,9 @@ public class MainPage extends ParentPage {
         actionsWithElements.clickOnElement(".//li[text()='" + accountName + "']");
     }
 
-    public void selectExpenceCategoryFromList(String expenceCategoryName) {
+    public void selectExpenceCategoryFromList(String expenceCategoryNum) {
         actionsWithElements.clickOnElement(expenceCategoryDD);
-        actionsWithElements.clickOnElement(".//li[text()='" + expenceCategoryName + "']");
+        actionsWithElements.clickOnElement(".//*[@id='OperationAdd_categoryExp_chzn_o_"+expenceCategoryNum+"']");
     }
 
     public void enterExpenceAmount(String expenceAmount) {
@@ -80,33 +95,26 @@ public class MainPage extends ParentPage {
         actionsWithElements.clickOnElement(categoriesSubMEnu);
     }
 
-//    public void adjustAccountBalance(String adjustedAccountName, String adjustCategory, String adjustedAmount) {
-//        actionsWithElements.clickOnElement(accountAdditionalFunctionsButton);
-//        actionsWithElements.clickOnElement(adjustAccountMenu);
-//        actionsWithElements.enterTextToElement(residueBalance);
-//        actionsWithElements.clickOnElement(selectCategoryDD);
-//        actionsWithElements.clickOnElement("");
-//        actionsWithElements.clickOnElement(adjustButton);
-//
-//    }
+    public void menuAdditionalSettingsOpen() {
+        actionsWithElements.clickOnElement(additionalMenu);
+        actionsWithElements.clickOnElement(settingsSubMEnu);
+    }
 
-    public String checkAccountBalance(String adjustedAccountName) {
+    public boolean isOperInList(){
+        return actionsWithElements.isElementInList(".//*[@class='operation_view_last_item']");
+    }
+
+
+   public String checkAccountBalance(String adjustedAccountName) {
         return "500";
     }
 
-    public boolean isExpenceAdded(String expenceAccount, String expenceCategory, String expenceAmount) {
-        return true;
+    public boolean isExpenceAdded(String expenceAmount) {
+        return actionsWithElements.isElementInListOnlyOne(".//*[@title='"+expenceAmount+".00 ₴ ']");
     }
 
-/*    public void clickAddAccountButton() {
-        actionsWithElements.clickOnElement(addAccountButton);
+    public String checkNetWorhBalance() {
+       return actionsWithElements.getTextFromElement(networthBalance);
     }
 
-    public void enterAccountName(String accountName) {
-        actionsWithElements.enterTextToElement(accountNameEnterForm, accountName);
-    }
-
-    public void setNewAccountCurrency() {
-        actionsWithElements.setCheckBoxState(currencyCheckBox, "checked");
-    }*/
 }
