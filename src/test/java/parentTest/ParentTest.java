@@ -21,6 +21,7 @@ public class ParentTest {
     protected AccountsPage accountsPage;
     protected CategoriesPage categoriesPage;
     protected SettingPage settingPage;
+    protected TargetPage targetPage;
 
     @Before
     public void setUp() {
@@ -35,7 +36,9 @@ public class ParentTest {
         categoriesPage = new CategoriesPage(webDriver);
         settingPage = new SettingPage(webDriver);
         parentPage = new ParentPage(webDriver, "/");
-        Actions actions = new Actions(webDriver);
+        targetPage = new TargetPage(webDriver);
+//        Actions actions = new Actions(webDriver);
+
     }
 
     @After

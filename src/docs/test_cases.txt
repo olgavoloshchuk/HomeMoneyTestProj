@@ -160,8 +160,8 @@ Post conditions
 - Close browser
 
 Test Case ID: 4
-Test Case Name: Adjust account rest
-Objective: Test of adjust default account "Cash"
+Test Case Name: Add and delete goal
+Objective: Test of adding and deleting goal
 
 Pre-conditions:
 - At computer installed latest version of Google Chrome Browser
@@ -178,24 +178,22 @@ Expected result for steps 2-4:
 - Reference "Sign out" is seen in the upper line
 
 Test steps:
-5. At "Control panel" near account "Cash" press hidden button for "Additional functions" and in drop-down list select "Adjust".
-6. In pop window "Adjustment of the balance" in block "Residue" enter amount 500.
-7. In pop window "Adjustment of the balance"  select "Category" from drop-down list = "No category"
-8. In pop window "Adjustment of the balance" press button "Adjust"
-and press button "Adjust".
+5. At "Control panel" press button "Add a goal..."
 
-Expected results for steps 5-8
-- Near account "Cash" amount 500 is seen
+- Page https://homemoney.ua/app/target/ is opened
 
-Test steps:
-9. At "Control panel" near account "Cash" press hidden button for "Additional functions" and in drop-down list select "Adjust".
-10. In pop window "Adjustment of the balance" in block "Residue" enter amount 0.
-11. In pop window "Adjustment of the balance"  select "Category" from drop-down list = "No category"
-12. In pop window "Adjustment of the balance" press button "Adjust"
-and press button "Adjust".
+Enter Name = "New Auto"
+Enter Sum = "1000000"
+Uncheck checkbox "Relfect on control panel"
+Press Button "Save"
 
-Expected results for steps 2-12
-- Near account "Cash" amount 0 is seen
+- Goal "New Auto" is seen
+
+Near goal "New Auto" press hidden button "X"
+Accept Allert (press "Ok")
+
+-Goal "New Auto" is not seen
+
 
 Post conditions
 - Press reference "Sign out" in the upper line

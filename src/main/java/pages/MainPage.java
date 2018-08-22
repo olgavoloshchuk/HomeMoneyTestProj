@@ -55,6 +55,9 @@ public class MainPage extends ParentPage {
     @FindBy(xpath = ".//*[@class='account']")
     private WebElement defaultAccount;
 
+    @FindBy(xpath = ".//a[@href='target']")
+    private WebElement addGoalButton;
+
 
     public MainPage(WebDriver webDriver) {
         super(webDriver, "/app/");
@@ -117,4 +120,7 @@ public class MainPage extends ParentPage {
        return actionsWithElements.getTextFromElement(networthBalance);
     }
 
+    public void clickAddGoalButton() {
+        actionsWithElements.clickOnElement(addGoalButton);
+    }
 }
