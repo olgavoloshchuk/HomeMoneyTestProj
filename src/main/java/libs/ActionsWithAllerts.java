@@ -21,6 +21,7 @@ public class ActionsWithAllerts {
         try {
             webDriverWait5.until(ExpectedConditions.alertIsPresent());
             webDriver.switchTo().alert().accept();
+            logger.info("Allert was accepted");
         } catch (Exception e){
             logger.info("Alert isn't present");
         }

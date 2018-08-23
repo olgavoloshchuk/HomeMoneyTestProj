@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,6 +18,8 @@ public class ActionsWithElements {
     WebDriverWait webDriverWait5;
     WebDriverWait webDriverWait10;
     WebDriverWait webDriverWait20;
+    Actions actions;
+    ActionsWithAllerts actionsWithAllerts;
 
     public ActionsWithElements(WebDriver webDriver) {
 
@@ -24,6 +27,8 @@ public class ActionsWithElements {
         webDriverWait5 = new WebDriverWait(webDriver, 5);
         webDriverWait10 = new WebDriverWait(webDriver, 10);
         webDriverWait20 = new WebDriverWait(webDriver, 20);
+        Actions actions = new Actions(webDriver);
+        actionsWithAllerts = new ActionsWithAllerts(webDriver);
     }
 
     public void enterTextToElement(WebElement webElement, String text) {
@@ -45,6 +50,17 @@ public class ActionsWithElements {
             webElement.click();
             logger.info("Element was clicked");
 
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void clickOnElementWithAccepAlert(WebElement webElement) {
+        try {
+            webDriverWait20.until(ExpectedConditions.elementToBeClickable(webElement));
+            webElement.click();
+            logger.info("Element was clicked");
+            actionsWithAllerts.allertAccept();
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
@@ -112,6 +128,19 @@ public class ActionsWithElements {
         }
     }
 
+    public void clickOnEveryElementInListWithAcceptAlert(String xPathLocator) {
+        try {
+            List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
+            for (WebElement element:webElementList) {
+                clickOnElementWithAccepAlert(element);
+Utils.waitABit(3);
+            }
+        } catch (Exception e)
+        {
+            printErrorAndStopTest(e);
+        }
+    }
+
     private void printErrorAndStopTest(Exception e) {
         logger.error("Cannot work with element");
         Assert.fail("Cannot work with element");
@@ -168,4 +197,31 @@ public class ActionsWithElements {
         }
     }
 
+    public void moveToElement(WebElement webElement) {
+        try {
+            webDriverWait5.until(ExpectedConditions.elementToBeClickable(webElement));
+            actions.moveToElement(webElement).build().perform();
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void moveToElement(String xPathLocator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
+            moveToElement(webElement);
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+
+    public String getTextFromElement(WebElement webElement) {
+        try {
+            return webElement.getText();
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+            return "";
+        }
+    }
 }

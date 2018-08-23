@@ -160,8 +160,8 @@ Post conditions
 - Close browser
 
 Test Case ID: 4
-Test Case Name: Adjust account rest
-Objective: Test of adjust default account "Cash"
+Test Case Name: Add and delete goal
+Objective: Test of adding and deleting goal
 
 Pre-conditions:
 - At computer installed latest version of Google Chrome Browser
@@ -178,32 +178,30 @@ Expected result for steps 2-4:
 - Reference "Sign out" is seen in the upper line
 
 Test steps:
-5. At "Control panel" near account "Cash" press hidden button for "Additional functions" and in drop-down list select "Adjust".
-6. In pop window "Adjustment of the balance" in block "Residue" enter amount 500.
-7. In pop window "Adjustment of the balance"  select "Category" from drop-down list = "No category"
-8. In pop window "Adjustment of the balance" press button "Adjust"
-and press button "Adjust".
+5. At "Control panel" press button "Add a goal..."
 
-Expected results for steps 5-8
-- Near account "Cash" amount 500 is seen
+- Page https://homemoney.ua/app/target/ is opened
 
-Test steps:
-9. At "Control panel" near account "Cash" press hidden button for "Additional functions" and in drop-down list select "Adjust".
-10. In pop window "Adjustment of the balance" in block "Residue" enter amount 0.
-11. In pop window "Adjustment of the balance"  select "Category" from drop-down list = "No category"
-12. In pop window "Adjustment of the balance" press button "Adjust"
-and press button "Adjust".
+Enter Name = "New Auto"
+Enter Sum = "1000000"
+Uncheck checkbox "Relfect on control panel"
+Press Button "Save"
 
-Expected results for steps 2-12
-- Near account "Cash" amount 0 is seen
+- Goal "New Auto" is seen
+
+Near goal "New Auto" press hidden button "X"
+Accept Allert (press "Ok")
+
+-Goal "New Auto" is not seen
+
 
 Post conditions
 - Press reference "Sign out" in the upper line
 - Close browser
 
-Test Case ID: 5
-Test Case Name: Add new currency
-Objective: Test of adding new currency
+Test Case ID: 6
+Test Case Name: Add and delete Expence
+Objective: Test of adding and deleting expence
 
 Pre-conditions:
 - At computer installed latest version of Google Chrome Browser
@@ -211,43 +209,35 @@ Pre-conditions:
 
 Test steps:
 1. In browser Google Chrome open page https://homemoney.ua/
-
-Expected result for step 1:
-- Forms for entering "Enter your email or login:" and "Enter password:" are seen
-- Button "Sign In" is seen
-
-Test Steps:
 2. In the field "Enter your email or login:" enter e-mail "olga.voloshchuk@gmail.com"
 3. In the field "Enter password:" enter password "Mytestpass"
 4. Press key "Enter"
 
 Expected result for steps 2-4:
 - Page https://homemoney.ua/app/ is opened
-- E-mail "olga.voloshchuk@gmail.com" is seen in the upper line
 - Reference "Sign out" is seen in the upper line
 
+5. Open bookmark Additional menu Settings
+6. Press button "Delete All Transactions"
+7. Submit allert (press ok)
+8. In the opened window press button "Yes, delete"
+7. Open bookmart "Control panel"
 
-Test Steps:
-5. Open bookmark "Additional" menu "Currency"
 
-Expected result:
-- Form "Currency" is seen
+Expected result
+- url https://homemoney.ua/app/ is open
+ - In the "Control Panel" bookmark, Net worth balance = 0
 
-Test Steps:
-6. In drop-down list near "Add currency" type EUR and chose currency "Euro"
-7. Press button "Save"
+8. At the bookmark Expence at list "Category" choose 1st ategory in list/
+8. At the field for amount enter 500
+9. Press button "Add"
 
-Expected result for steps 6-7:
-- Currency "Euro" is seen in form "Currency"
+Expected Result:
+- In list of transactions only one transaction with amount 500 exist
 
-Test steps:
-8. Step cursor to currency = "Euro" and press "X" ("undefined")
-
-Expected result for step 8:
-- Currency "Euro" is not seen in form "Currency"
-
-Post conditions
-- Press reference "Sign out" in the upper line
-
+5. Open bookmark Additional menu Settings
+6. Press button "Delete All Transactions"
+7. Submit allert (press ok)
+8. In the opened window press button "Yes, delete"
 
 
