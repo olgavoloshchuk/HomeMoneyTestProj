@@ -201,6 +201,8 @@ Utils.waitABit(3);
         try {
             webDriverWait5.until(ExpectedConditions.elementToBeClickable(webElement));
             actions.moveToElement(webElement).build().perform();
+            Utils.waitABit(3);
+            actions.moveToElement(webElement).click().perform();
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }

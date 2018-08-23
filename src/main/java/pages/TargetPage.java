@@ -18,6 +18,9 @@ public class TargetPage extends ParentPage{
     @FindBy(id = "ctl00_ctl00_Main_Main_tm1_editForm_cbDisplayDashboard")
     private WebElement reflectOnControlPanel;
 
+    @FindBy(id = "ctl00_ctl00_Main_Main_tm1_btnShowAdd")
+    private WebElement addGoalButton;
+
     public TargetPage(WebDriver webDriver) {
         super(webDriver, "/app/target/");
     }
@@ -40,5 +43,25 @@ public class TargetPage extends ParentPage{
 
     public void uncheckReflectOnControlPanel() {
         actionsWithElements.setCheckBoxState(reflectOnControlPanel, "uncheck");
+    }
+
+    public boolean isAddGoalButtonExists() {
+        return actionsWithElements.isElementEnabled(addGoalButton);
+    }
+
+    public void clickAddGoalButton() {
+        actionsWithElements.clickOnElement(addGoalButton);
+
+
+    }
+
+    public void moveCursorToTarget(String targetName) {
+        actionsWithElements.moveToElement(".//h2[contains(text(), '"+targetName+"')]");
+    }
+
+    public void clickDeleteTargetButton(String targetName) {
+        actionsWithElements.moveToElement(".//h2[contains(text(), '"+targetName+"')]//..//input[@title='Delete']");
+        actionsWithElements.clickOnElement(".//h2[contains(text(), '"+targetName+"')]//..//input[@title='Delete']");
+        actionsWithAllerts.allertAccept();
     }
 }
