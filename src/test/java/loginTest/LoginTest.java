@@ -7,6 +7,7 @@ public class LoginTest extends ParentTest {
     @Test
     public void validLogIn() {
         loginPage.openPage("/login.aspx");
+        loginPage.isSignInButtonPresent();
         loginPage.enterLogin("olga.voloshchuk@gmail.com");
         loginPage.enterPass("Mytestpass");
         loginPage.clickOnSignInButton();
@@ -20,6 +21,7 @@ public class LoginTest extends ParentTest {
     @Test
     public void invalidLogIn() {
         loginPage.openPage("/login.aspx");
+        loginPage.isSignInButtonPresent();
         loginPage.enterLogin("olga.voloshchuk@gmail.com");
         loginPage.enterPass("Mytestpass1");
         loginPage.clickOnSignInButton();

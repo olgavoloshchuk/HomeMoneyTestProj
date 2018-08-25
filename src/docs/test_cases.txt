@@ -12,7 +12,6 @@ Test steps:
 1. In browser Google Chrome open page https://homemoney.ua/
 
 Expected result for step 1:
-- Forms for entering "Enter your email or login:" and "Enter password:" are seen
 - Button "Sign In" is enable
 
 Test Steps:
@@ -42,7 +41,7 @@ Expected result for steps 6-8:
 Post condition
 - Close browser
 
-
+-----------------------------------------------------------------------------------------
 Test Case ID: 2
 Test Case Name: Add and delete accounts
 Objective: Test of adding and deleting accounts.
@@ -94,6 +93,7 @@ Post conditions
 - Press reference "Sign out" in the upper line
 - Close browser
 
+-------------------------------------------------------------------------------------------
 Test Case ID: 3
 Test Case Name: Add new Category and sub Category
 Objective: Test adding and deleting Category and sub Category
@@ -119,8 +119,23 @@ Expected result:
 - Page https://homemoney.ua/app/categorymanager.aspx is open
 
 Test steps:
+5.1. If sub category is seen do next steps:
+- At bookmark "Expense" click on sub-category "Test sub-exp 1"
+- Click on reference "Remove"
+- In pop-up wondow click on button "Ok"
+- Refresh page https://homemoney.ua/app/categorymanager.aspx
+
+5.2. If category Test exp 1 is seen do next steps:
+- At bookmark "Expense" click on category "Test exp 1"
+- Click on reference "Remove"
+- In pop-up window click on button "Ok"
+- Refresh page https://homemoney.ua/app/categorymanager.aspx
+
+
+Test steps:
 6. In bookmark "Expenses" at form "Categoty" print name "Test exp 1"
 7. Press button "Save"
+
 Expected result for steps 6-7:
 - Category "Test exp 1" is seen
 
@@ -128,6 +143,7 @@ Expected result for steps 6-7:
 9. Check check-box near "Make this subcategory of..."
 10. In drop-down list select category "Test exp 1"
 11. Press button "Save"
+
 Expected result for steps 8-11:
 - At bookmark "Expenses" in form "Categories" in category "Test exp 1" sub-category "Test sub-exp 1" is seen
 
@@ -135,7 +151,7 @@ Test steps:
 12. At bookmark "Expense" click on category "Test exp 1"
 13. Click on reference "Remove"
 
-Expected result for steps 26-27:
+Expected result for steps 12-13:
 - At bookmark "Expense" message "Category or subcategory contains transactions. Transfer them to other categories" is seen
 - At bookmark "Expenses" in form "Categories" category "Test exp 1" is seen
 
@@ -144,7 +160,7 @@ Test steps:
 15. Click on reference "Remove"
 16. In pop-up wondow click on button "Ok"
 
-Expected result for steps 28-30:
+Expected result for steps 14-15:
 - At bookmark "Expense" in form "Categories" in category "Test exp 1" sub-category "Test sub-exp 1" is not seen
 
 Test steps:
@@ -152,13 +168,14 @@ Test steps:
 18. Click on reference "Remove"
 19. In pop-up window click on button "Ok"
 
-Expected result for steps 31-33:
+Expected result for steps 17-19:
 - At bookmark "Expense" in form "Categories" category "Test exp 1" is not seen
 
 Post conditions
 - Press reference "Sign out" in the upper line
 - Close browser
 
+------------------------------------------------------------------------------------
 Test Case ID: 4
 Test Case Name: Add and delete goal
 Objective: Test of adding and deleting goal
@@ -193,10 +210,17 @@ Test steps:
 Expected result:
 - Goal "Target..." (input goal name) is seen
 
+11. Move cursor to entered target and then press to hidden button "X"
+12. Accept alert (press ok)
+
+Expected result:
+- Goal "Target..." (input goal name) is not seen
+
 Post conditions
 - Press reference "Sign out" in the upper line
 - Close browser
 
+--------------------------------------------------------------
 Test Case ID: 5
 Test Case Name: Add and delete Expence
 Objective: Test of adding and deleting expence
@@ -226,7 +250,7 @@ Expected result
 - url https://homemoney.ua/app/ is open
  - In the "Control Panel" bookmark, Net worth balance = 0
 
-8. At the bookmark Expence at list "Category" choose 1st ategory in list/
+8. At the bookmark Expence at list "Category" choose 1st category in list
 8. At the field for amount enter 500
 9. Press button "Add"
 
@@ -237,5 +261,14 @@ Expected Result:
 6. Press button "Delete All Transactions"
 7. Submit allert (press ok)
 8. In the opened window press button "Yes, delete"
+
+Expected result
+- url https://homemoney.ua/app/ is open
+- In the "Control Panel" bookmark, Net worth balance = 0
+
+ Post conditions
+- Press reference "Sign out" in the upper line
+- Close browser
+
 
 

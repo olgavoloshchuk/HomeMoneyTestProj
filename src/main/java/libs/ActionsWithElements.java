@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -16,8 +15,6 @@ public class ActionsWithElements {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
     WebDriverWait webDriverWait5;
-    WebDriverWait webDriverWait10;
-    WebDriverWait webDriverWait20;
     Actions actions;
     ActionsWithAllerts actionsWithAllerts;
 
@@ -25,16 +22,19 @@ public class ActionsWithElements {
 
         this.webDriver = webDriver;
         webDriverWait5 = new WebDriverWait(webDriver, 5);
-        webDriverWait10 = new WebDriverWait(webDriver, 10);
-        webDriverWait20 = new WebDriverWait(webDriver, 20);
-        Actions actions = new Actions(webDriver);
+        actions = new Actions(webDriver);
         actionsWithAllerts = new ActionsWithAllerts(webDriver);
     }
 
+    /**
+     * Method for enter text to web element
+     *
+     * @param webElement
+     * @param text
+     */
     public void enterTextToElement(WebElement webElement, String text) {
         try {
-
-            webDriverWait10.until(ExpectedConditions.visibilityOf(webElement));
+            webDriverWait5.until(ExpectedConditions.visibilityOf(webElement));
             webElement.clear();
             webElement.sendKeys(text);
             logger.info(text + " was entered to element");
@@ -44,9 +44,14 @@ public class ActionsWithElements {
         }
     }
 
+    /**
+     * Method for click on web element
+     *
+     * @param webElement
+     */
     public void clickOnElement(WebElement webElement) {
         try {
-            webDriverWait20.until(ExpectedConditions.elementToBeClickable(webElement));
+            webDriverWait5.until(ExpectedConditions.elementToBeClickable(webElement));
             webElement.click();
             logger.info("Element was clicked");
 
@@ -55,9 +60,14 @@ public class ActionsWithElements {
         }
     }
 
+    /**
+     * Method for click on web element with further accept of alert
+     *
+     * @param webElement
+     */
     public void clickOnElementWithAccepAlert(WebElement webElement) {
         try {
-            webDriverWait20.until(ExpectedConditions.elementToBeClickable(webElement));
+            webDriverWait5.until(ExpectedConditions.elementToBeClickable(webElement));
             webElement.click();
             logger.info("Element was clicked");
             actionsWithAllerts.allertAccept();
@@ -66,6 +76,12 @@ public class ActionsWithElements {
         }
     }
 
+    /**
+     * Method check if web element displayed
+     *
+     * @param webElement
+     * @return true or false
+     */
     public boolean isElementDisplayed(WebElement webElement) {
         try {
             boolean state = webElement.isDisplayed();
@@ -78,6 +94,12 @@ public class ActionsWithElements {
         }
     }
 
+    /**
+     * Method check if web element is enabled
+     *
+     * @param webElement
+     * @return true or false
+     */
     public boolean isElementEnabled(WebElement webElement) {
         try {
             boolean state = webElement.isEnabled();
@@ -90,6 +112,12 @@ public class ActionsWithElements {
         }
     }
 
+    /**
+     * Method check if web element with given xpath locator is displayed
+     *
+     * @param xPathLocator
+     * @return true or false
+     */
     public boolean isElementDisplayed(String xPathLocator) {
         try {
             WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
@@ -99,8 +127,13 @@ public class ActionsWithElements {
         }
     }
 
-
-    //check if element exists
+    /**
+     * Method check if web element with given xpath locator exists
+     *
+     * @param xPathLocator
+     * @return true or false
+     */
+    //
     public boolean isElementInList(String xPathLocator) {
         try {
             List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
@@ -114,7 +147,12 @@ public class ActionsWithElements {
         }
     }
 
-    //check if element exists and only one
+    /**
+     * Method check is web element with given xpath locator exists only one
+     *
+     * @param xPathLocator
+     * @return true or false
+     */
     public boolean isElementInListOnlyOne(String xPathLocator) {
         try {
             List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
@@ -128,38 +166,9 @@ public class ActionsWithElements {
         }
     }
 
-    public void clickOnEveryElementInListWithAcceptAlert(String xPathLocator) {
-        try {
-            List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
-            for (WebElement element:webElementList) {
-                clickOnElementWithAccepAlert(element);
-Utils.waitABit(3);
-            }
-        } catch (Exception e)
-        {
-            printErrorAndStopTest(e);
-        }
-    }
-
     private void printErrorAndStopTest(Exception e) {
         logger.error("Cannot work with element");
         Assert.fail("Cannot work with element");
-    }
-
-    public void selectValueInDD(WebElement dropDownList, String value) {
-        try {
-            Select select = new Select(dropDownList);
-            select.selectByValue(value);
-            logger.info(value + " was selected in DD");
-        } catch (Exception e) {
-            printErrorAndStopTest(e);
-        }
-
-    }
-
-    public void clickElementInDD(WebElement dropDownList, WebElement dropDownElement) {
-        clickOnElement(dropDownList);
-        clickOnElement(dropDownElement);
     }
 
 
@@ -188,36 +197,56 @@ Utils.waitABit(3);
         }
     }
 
+    /**
+     * Method click on web element by given xpath locator
+     *
+     * @param xPathLocator
+     */
     public void clickOnElement(String xPathLocator) {
         try {
             WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
+            webDriverWait5.until((ExpectedConditions.elementToBeClickable(webElement)));
             clickOnElement(webElement);
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
     }
 
+    /**
+     * Method for move cursor to web element by given xpath locator
+     *
+     * @param xPathLocator
+     */
     public void moveToElement(String xPathLocator) {
         try {
             WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
-            webDriverWait5.until(ExpectedConditions.elementToBeClickable(webElement));
-            actions.moveToElement(webElement).perform();
+            actions.moveToElement(webElement).build().perform();
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
     }
 
-    public void moveToElementAndClick (String xPathLocator) {
+    /**
+     * Method for move to element by given xpath locator and click
+     *
+     * @param xPathLocator
+     */
+    public void moveToElementAndClick(String xPathLocator) {
         try {
             WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
-            webDriverWait5.until(ExpectedConditions.elementToBeClickable(webElement));
+            webDriverWait5.until(ExpectedConditions.visibilityOf(webElement));
             actions.moveToElement(webElement).click().perform();
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
     }
 
-
+    /**
+     * Method for get text from web element
+     *
+     * @param webElement
+     * @return
+     */
     public String getTextFromElement(WebElement webElement) {
         try {
             return webElement.getText();

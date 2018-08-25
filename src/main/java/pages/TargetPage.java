@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class TargetPage extends ParentPage{
+public class TargetPage extends ParentPage {
 
     @FindBy(id = "ctl00_ctl00_Main_Main_tm1_editForm_txtTitle")
     private WebElement fieldTargetName;
@@ -38,7 +38,7 @@ public class TargetPage extends ParentPage{
     }
 
     public boolean isGoalExists(String targetName) {
-        return actionsWithElements.isElementDisplayed(".//h2[contains(text(), '"+targetName+"')]");
+        return actionsWithElements.isElementDisplayed(".//h2[contains(text(), '" + targetName + "')]");
     }
 
     public void uncheckReflectOnControlPanel() {
@@ -56,12 +56,11 @@ public class TargetPage extends ParentPage{
     }
 
     public void moveCursorToTarget(String targetName) {
-        actionsWithElements.moveToElement(".//h2[contains(text(), '"+targetName+"')]");
+        actionsWithElements.moveToElement(".//h2[contains(text(), '" + targetName + "')]");
     }
 
     public void clickDeleteTargetButton(String targetName) {
-        actionsWithElements.moveToElement(".//h2[contains(text(), '"+targetName+"')]//..//input[@title='Delete']");
-        actionsWithElements.clickOnElement(".//h2[contains(text(), '"+targetName+"')]//..//input[@title='Delete']");
+        actionsWithElements.moveToElementAndClick(".//h2[contains(text(), '" + targetName + "')]//..//input[@title='Delete']");
         actionsWithAllerts.allertAccept();
     }
 }
