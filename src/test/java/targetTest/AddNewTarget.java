@@ -1,5 +1,6 @@
 package targetTest;
 
+import libs.Utils;
 import org.junit.Test;
 import parentTest.ParentTest;
 
@@ -17,11 +18,19 @@ public class AddNewTarget extends ParentTest {
         loginPage.userValidLogin("olga.voloshchuk@gmail.com", "Mytestpass");
         mainPage.clickAddGoalButton();
         targetPage.checkCurrentUrl();
+        if (targetPage.isAddGoalButtonExists()) {
+            targetPage.clickAddGoalButton();
+        };
         targetPage.enterTargetName(unicTargetNAme);
         targetPage.enterTargetSum(targetSum);
         targetPage.uncheckReflectOnControlPanel();
         targetPage.pressSaveButton();
         checkAC("Goal was not added", targetPage.isGoalExists(unicTargetNAme), true);
+        Utils.waitABit(3);
+      //  targetPage.moveCursorToTarget(unicTargetNAme);
+      //  Utils.waitABit(3);
+        targetPage.clickDeleteTargetButton(unicTargetNAme);
+        checkAC("Goal was not deleted", targetPage.isGoalExists(unicTargetNAme), false);
     }
 
 }

@@ -197,19 +197,21 @@ Utils.waitABit(3);
         }
     }
 
-    public void moveToElement(WebElement webElement) {
+    public void moveToElement(String xPathLocator) {
         try {
+            WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
             webDriverWait5.until(ExpectedConditions.elementToBeClickable(webElement));
-            actions.moveToElement(webElement).build().perform();
+            actions.moveToElement(webElement).perform();
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
     }
 
-    public void moveToElement(String xPathLocator) {
+    public void moveToElementAndClick (String xPathLocator) {
         try {
             WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
-            moveToElement(webElement);
+            webDriverWait5.until(ExpectedConditions.elementToBeClickable(webElement));
+            actions.moveToElement(webElement).click().perform();
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
