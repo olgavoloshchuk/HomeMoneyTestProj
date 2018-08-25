@@ -4,6 +4,8 @@ import libs.Utils;
 import org.junit.Test;
 import parentTest.ParentTest;
 
+import javax.rmi.CORBA.Util;
+
 import static libs.Utils.getDateAndTimeFormated;
 
 public class AddNewTarget extends ParentTest {
@@ -26,10 +28,9 @@ public class AddNewTarget extends ParentTest {
         targetPage.uncheckReflectOnControlPanel();
         targetPage.pressSaveButton();
         checkAC("Goal was not added", targetPage.isGoalExists(unicTargetNAme), true);
-        Utils.waitABit(3);
-      //  targetPage.moveCursorToTarget(unicTargetNAme);
-      //  Utils.waitABit(3);
+        targetPage.moveCursorToTarget(unicTargetNAme);
         targetPage.clickDeleteTargetButton(unicTargetNAme);
+        Utils.waitABit(2);
         checkAC("Goal was not deleted", targetPage.isGoalExists(unicTargetNAme), false);
     }
 

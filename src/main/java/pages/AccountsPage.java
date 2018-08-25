@@ -22,15 +22,15 @@ public class AccountsPage extends ParentPage {
     @FindBy(id = "ctl00_ctl00_Main_Main_acList_hmNewAccount_btnSave")
     private WebElement addButton;
 
-    @FindBy(id="ctl00_ctl00_Top_LV2_LoginStatus2")
+    @FindBy(id = "ctl00_ctl00_Top_LV2_LoginStatus2")
     private WebElement signOutRef;
 
     public AccountsPage(WebDriver webDriver) {
         super(webDriver, "/app/accounts.aspx");
     }
 
-    public void goToAccountsPage () {
-         actionsWithElements.clickOnElement(accountsPageMenu);
+    public void goToAccountsPage() {
+        actionsWithElements.clickOnElement(accountsPageMenu);
     }
 
     public void pressAccountAddButton() {
@@ -58,17 +58,13 @@ public class AccountsPage extends ParentPage {
     }
 
     public boolean isAccountExists(String accountName) {
-       return actionsWithElements.isElementDisplayed(".//*[@class = 'accountitem']//*[@class='name']//a[text()='"+accountName+"']");
+        return actionsWithElements.isElementDisplayed(".//*[@class = 'accountitem']//*[@class='name']//a[text()='" + accountName + "']");
     }
 
-    public void deleteAccount (String accountName) {
-            actionsWithElements.clickOnElement(
-                    webDriver.
-                            findElement(By.xpath(".//*[@class = 'accountitem']//*[@class='name']//a[text()='" + accountName + "']//..//..//*[@class='controls']//a[text()='Delete']")));
-            actionsWithAllerts.allertAccept();
-            actionsWithElements.clickOnElement(
-                    webDriver.findElement(By.xpath(".//input[@class='updatebutton' and @type = 'submit' and @value = 'Delete']"))
-            );
+    public void deleteAccount(String accountName) {
+        actionsWithElements.clickOnElement(".//*[@class = 'accountitem']//*[@class='name']//a[text()='" + accountName + "']//..//..//*[@class='controls']//a[text()='Delete']");
+        actionsWithAllerts.allertAccept();
+        actionsWithElements.clickOnElement(".//input[@class='updatebutton' and @type = 'submit' and @value = 'Delete']");
     }
 
     public void signOut() {

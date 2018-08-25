@@ -119,8 +119,23 @@ Expected result:
 - Page https://homemoney.ua/app/categorymanager.aspx is open
 
 Test steps:
+If sub category is seen do next steps:
+- At bookmark "Expense" click on sub-category "Test sub-exp 1"
+- Click on reference "Remove"
+- In pop-up wondow click on button "Ok"
+- Refresh page https://homemoney.ua/app/categorymanager.aspx
+
+If category Test exp 1 is seen do next steps:
+- At bookmark "Expense" click on category "Test exp 1"
+- Click on reference "Remove"
+- In pop-up window click on button "Ok"
+- Refresh page https://homemoney.ua/app/categorymanager.aspx
+
+
+Test steps:
 6. In bookmark "Expenses" at form "Categoty" print name "Test exp 1"
 7. Press button "Save"
+- Refresh page https://homemoney.ua/app/categorymanager.aspx
 Expected result for steps 6-7:
 - Category "Test exp 1" is seen
 
@@ -128,6 +143,7 @@ Expected result for steps 6-7:
 9. Check check-box near "Make this subcategory of..."
 10. In drop-down list select category "Test exp 1"
 11. Press button "Save"
+- Refresh page https://homemoney.ua/app/categorymanager.aspx
 Expected result for steps 8-11:
 - At bookmark "Expenses" in form "Categories" in category "Test exp 1" sub-category "Test sub-exp 1" is seen
 
@@ -143,6 +159,7 @@ Test steps:
 14. At bookmark "Expense" click on sub-category "Test sub-exp 1"
 15. Click on reference "Remove"
 16. In pop-up wondow click on button "Ok"
+Refresh page https://homemoney.ua/app/categorymanager.aspx
 
 Expected result for steps 28-30:
 - At bookmark "Expense" in form "Categories" in category "Test exp 1" sub-category "Test sub-exp 1" is not seen
@@ -151,6 +168,7 @@ Test steps:
 17. At bookmark "Expense" click on category "Test exp 1"
 18. Click on reference "Remove"
 19. In pop-up window click on button "Ok"
+Refresh page https://homemoney.ua/app/categorymanager.aspx
 
 Expected result for steps 31-33:
 - At bookmark "Expense" in form "Categories" category "Test exp 1" is not seen

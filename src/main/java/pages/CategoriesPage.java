@@ -30,9 +30,7 @@ public class CategoriesPage extends ParentPage {
     }
 
     public void addCategory(String categoryExpName) {
-      //  actionsWithElements.clickOnElement(categoryNameInput);
         actionsWithElements.enterTextToElement(categoryNameInput, categoryExpName);
-  //      Utils.waitABit(5);
         actionsWithElements.clickOnElement(categorySaveButton);
     }
 
