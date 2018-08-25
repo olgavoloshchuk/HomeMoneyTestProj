@@ -34,6 +34,6 @@ public class Utils {
      */
     public static String getDateAndTimeFormated(){
 
-        return getDateAndTime("yyyy-MM-dd_HH-mm-ss");
+        return getDateAndTime("yyyy-MM-dd_HH-mm");
     }
 }

@@ -180,26 +180,24 @@ Expected result for steps 2-4:
 Test steps:
 5. At "Control panel" press button "Add a goal..."
 
+Expected result:
 - Page https://homemoney.ua/app/target/ is opened
 
-Enter Name = "New Auto"
-Enter Sum = "1000000"
-Uncheck checkbox "Relfect on control panel"
-Press Button "Save"
+Test steps:
+6. If you see button "Add a goal" - press it, if this button doesn't exists just go to the next step
+7. Enter Name = "Target" + current date and time in format yyyy-MM-dd_HH-mm
+8. Enter Sum = "1000000"
+9. Uncheck checkbox "Relfect on control panel"
+10. Press Button "Save"
 
-- Goal "New Auto" is seen
-
-Near goal "New Auto" press hidden button "X"
-Accept Allert (press "Ok")
-
--Goal "New Auto" is not seen
-
+Expected result:
+- Goal "Target..." (input goal name) is seen
 
 Post conditions
 - Press reference "Sign out" in the upper line
 - Close browser
 
-Test Case ID: 6
+Test Case ID: 5
 Test Case Name: Add and delete Expence
 Objective: Test of adding and deleting expence
 
