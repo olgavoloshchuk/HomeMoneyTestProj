@@ -1,9 +1,6 @@
 package pages;
 
-import libs.ActionsWithElements;
-import libs.Utils;
-import org.junit.Assert;
-import org.openqa.selenium.By;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -63,63 +60,55 @@ public class MainPage extends ParentPage {
         super(webDriver, "/app/");
     }
 
+    @Step
     public boolean isSignOutRefPresent() {
         return actionsWithElements.isElementDisplayed(signOutRef);
     }
 
-    public boolean isControlPanelOpened() {
-        return actionsWithElements.isElementDisplayed(controlPanel);
-    }
-
+    @Step
     public void signOut() {
         actionsWithElements.clickOnElement(signOutRef);
     }
 
-    public void selectExpenceAccountFromList(String accountName) {
-        actionsWithElements.clickOnElement(expenceFromAcDD);
-        actionsWithElements.clickOnElement(".//li[text()='" + accountName + "']");
-    }
-
+    @Step
     public void selectExpenceCategoryFromList(String expenceCategoryNum) {
         actionsWithElements.clickOnElement(expenceCategoryDD);
-        actionsWithElements.clickOnElement(".//*[@id='OperationAdd_categoryExp_chzn_o_"+expenceCategoryNum+"']");
+        actionsWithElements.clickOnElement(".//*[@id='OperationAdd_categoryExp_chzn_o_" + expenceCategoryNum + "']");
     }
 
+    @Step
     public void enterExpenceAmount(String expenceAmount) {
         actionsWithElements.enterTextToElement(expenceAmountEnterForm, expenceAmount);
     }
 
+    @Step
     public void clickOnAddExpenceButton() {
         actionsWithElements.clickOnElement(addExpenceButton);
     }
 
+    @Step
     public void menuAdditionalCatgoriesOpen() {
         actionsWithElements.clickOnElement(additionalMenu);
         actionsWithElements.clickOnElement(categoriesSubMEnu);
     }
 
+    @Step
     public void menuAdditionalSettingsOpen() {
         actionsWithElements.clickOnElement(additionalMenu);
         actionsWithElements.clickOnElement(settingsSubMEnu);
     }
 
-    public boolean isOperInList(){
-        return actionsWithElements.isElementInList(".//*[@class='operation_view_last_item']");
-    }
-
-
-   public String checkAccountBalance(String adjustedAccountName) {
-        return "500";
-    }
-
+    @Step
     public boolean isExpenceAdded(String expenceAmount) {
-        return actionsWithElements.isElementInListOnlyOne(".//*[@title='"+expenceAmount+".00 ₴ ']");
+        return actionsWithElements.isElementInListOnlyOne(".//*[@title='" + expenceAmount + ".00 ₴ ']");
     }
 
+    @Step
     public String checkNetWorhBalance() {
-       return actionsWithElements.getTextFromElement(networthBalance);
+        return actionsWithElements.getTextFromElement(networthBalance);
     }
 
+    @Step
     public void clickAddGoalButton() {
         actionsWithElements.clickOnElement(addGoalButton);
     }

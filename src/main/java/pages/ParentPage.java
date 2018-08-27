@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import libs.ActionsWithAllerts;
 import libs.ActionsWithElements;
 import org.apache.log4j.Logger;
@@ -23,10 +24,12 @@ public class ParentPage {
         actionsWithAllerts = new ActionsWithAllerts(webDriver);
     }
 
+    @Step
     public String getCurrentUrl() {
         return webDriver.getCurrentUrl();
     }
 
+    @Step
     public void checkCurrentUrl() {
         try {
             Assert.assertEquals("Url is not expected", expectedUrl, getCurrentUrl());
@@ -36,6 +39,7 @@ public class ParentPage {
         }
     }
 
+    @Step
     public void openPage (String expectedUrl) {
         try {
             webDriver.get(baseUrl+expectedUrl);
