@@ -1,13 +1,9 @@
 package pages;
 
-import libs.Utils;
-import org.junit.Assert;
-import org.openqa.selenium.By;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import javax.rmi.CORBA.Util;
 
 public class LoginPage extends ParentPage {
     MainPage mainPage;
@@ -31,22 +27,27 @@ public class LoginPage extends ParentPage {
         mainPage = new MainPage(webDriver);
     }
 
+    @Step
     public void enterLogin(String login) {
         actionsWithElements.enterTextToElement(loginInput, login);
     }
 
+    @Step
     public void enterPass(String pass) {
         actionsWithElements.enterTextToElement(passwordInput, pass);
     }
 
+    @Step
     public void clickOnSignInButton() {
         actionsWithElements.clickOnElement(submitButton);
     }
 
+    @Step
     public boolean isLoginError() {
         return actionsWithElements.isElementDisplayed(loginErorrMessage);
     }
 
+    @Step
     public boolean isSignInButtonPresent() {
         return actionsWithElements.isElementDisplayed(submitButton);
     }
@@ -57,6 +58,7 @@ public class LoginPage extends ParentPage {
      * @param login    (ONLY valid login)
      * @param password (ONLY valid password)
      */
+    @Step
     public void userValidLogin(String login, String password) {
         openPage(expectedUrl);
         enterLogin(login);

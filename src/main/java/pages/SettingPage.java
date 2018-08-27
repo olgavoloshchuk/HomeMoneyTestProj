@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,11 +19,13 @@ public class SettingPage extends ParentPage {
         super(webDriver, "/app/additional.aspx");
     }
 
+    @Step
     public void deleteAllOperations() {
         actionsWithElements.clickOnElementWithAccepAlert(deleteAllTransactionsButton);
         actionsWithElements.clickOnElement(yesDeleteButton);
     }
 
+    @Step
     public void menuControlPanelOpen() {
 
         actionsWithElements.clickOnElement(controlPanelMenu);

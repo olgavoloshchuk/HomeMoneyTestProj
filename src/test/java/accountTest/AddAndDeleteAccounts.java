@@ -10,7 +10,7 @@ public class AddAndDeleteAccounts extends ParentTest {
     @Test
     public void addAndDeleteAccounts() {
         loginPage.userValidLogin("olga.voloshchuk@gmail.com", "Mytestpass");
-        accountsPage.openPage("/app/accounts.aspx");
+        accountsPage.goToAccountsPage();
         accountsPage.addAccount(accountName1);
         checkAC("Account was not added", accountsPage.isAccountExists(accountName1), true);
         accountsPage.addAccount(accountName2);
