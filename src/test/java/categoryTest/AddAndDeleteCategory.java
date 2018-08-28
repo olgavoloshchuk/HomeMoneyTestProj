@@ -30,7 +30,7 @@ public class AddAndDeleteCategory extends ParentTest {
         Utils.waitABit(2);
         checkAC("sub category was not deleted", categoriesPage.isSubCategoryExist(categoryExpName, subCategoryExpName), false);
         categoriesPage.deleteCategory(categoryExpName);
-        Utils.waitABit(2);
+        Utils.waitABit(3);
         checkAC("category was not deleted", categoriesPage.isCategoryExist(categoryExpName), false);
 
     }

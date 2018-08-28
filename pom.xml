@@ -106,7 +106,7 @@
         <version>2.20</version>
         <configuration>
           <parallel>classes</parallel>
-          <threadCount>3</threadCount>
+          <threadCount>1</threadCount>
           <argLine>
             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
           </argLine>
