@@ -5,10 +5,10 @@
 .idea/workspace.xml
 /.idea/workspace.xml
 target/
-.allure
 *.log
 *.iml
 *.ipr
 *.iws
+.allure
 
 
