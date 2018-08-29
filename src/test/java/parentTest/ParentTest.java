@@ -41,7 +41,6 @@ public class ParentTest {
         accountsPage = new AccountsPage(webDriver);
         categoriesPage = new CategoriesPage(webDriver);
         settingPage = new SettingPage(webDriver);
-        parentPage = new ParentPage(webDriver, "/");
         targetPage = new TargetPage(webDriver);
 
     }

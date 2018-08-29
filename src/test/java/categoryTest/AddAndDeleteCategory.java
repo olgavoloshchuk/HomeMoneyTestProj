@@ -14,10 +14,8 @@ public class AddAndDeleteCategory extends ParentTest {
         loginPage.userValidLogin("olga.voloshchuk@gmail.com", "Mytestpass");
         mainPage.menuAdditionalCatgoriesOpen();
         categoriesPage.checkCurrentUrl();
-        if (categoriesPage.isSubCategoryExist(categoryExpName, subCategoryExpName))
-            categoriesPage.deleteSubCategory(subCategoryExpName);
-        if (categoriesPage.isCategoryExist(categoryExpName)) categoriesPage.deleteCategory(categoryExpName);
-        Utils.waitABit(2);
+        categoriesPage.deleteSubCategoryAndCategory(subCategoryExpName, categoryExpName);
+      //  Utils.waitABit(2);
         categoriesPage.addCategory(categoryExpName);
         checkAC("Category was not added", categoriesPage.isCategoryExist(categoryExpName), true);
         categoriesPage.addSubCategory(categoryExpName, subCategoryExpName);

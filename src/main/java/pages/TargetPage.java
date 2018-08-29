@@ -58,7 +58,8 @@ public class TargetPage extends ParentPage {
 
     @Step
     public void clickAddGoalButton() {
-        actionsWithElements.clickOnElement(addGoalButton);
+        if (isAddGoalButtonExists())
+        {actionsWithElements.clickOnElement(addGoalButton);};
     }
 
     @Step
