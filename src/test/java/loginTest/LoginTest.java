@@ -14,7 +14,6 @@ public class LoginTest extends ParentTest {
         mainPage.checkCurrentUrl();
         checkAC("Sign-out is not present", mainPage.isSignOutRefPresent(), true);
         mainPage.signOut();
-        parentPage.checkCurrentUrl();
         checkAC("Sign out was not success", loginPage.isSignInButtonPresent(), true);
     }
 

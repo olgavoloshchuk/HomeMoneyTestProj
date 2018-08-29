@@ -77,4 +77,10 @@ public class CategoriesPage extends ParentPage {
         actionsWithAllerts.allertAccept();
 
     }
+
+    public void deleteSubCategoryAndCategory(String subCategoryExpName, String categoryExpName) {
+        if (isSubCategoryExist(categoryExpName, subCategoryExpName))
+            deleteSubCategory(subCategoryExpName);
+        if (isCategoryExist(categoryExpName)) deleteCategory(categoryExpName);
+    }
 }

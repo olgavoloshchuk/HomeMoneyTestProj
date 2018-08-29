@@ -14,15 +14,13 @@ public class AddNewTarget extends ParentTest {
 
 
     @Test
-    public void addNewTarget(){
+    public void addNewTarget() {
         String dateTime = getDateAndTimeFormated();
-        String unicTargetNAme = targetName+dateTime;
+        String unicTargetNAme = targetName + dateTime;
         loginPage.userValidLogin("olga.voloshchuk@gmail.com", "Mytestpass");
         mainPage.clickAddGoalButton();
         targetPage.checkCurrentUrl();
-        if (targetPage.isAddGoalButtonExists()) {
-            targetPage.clickAddGoalButton();
-        };
+        targetPage.clickAddGoalButton();
         targetPage.enterTargetName(unicTargetNAme);
         targetPage.enterTargetSum(targetSum);
         targetPage.uncheckReflectOnControlPanel();
